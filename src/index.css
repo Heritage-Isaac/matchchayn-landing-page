@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 252 30% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 252 30% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 252 30% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 264 100% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 252 20% 14%;
+    --muted-foreground: 245 10% 66%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 252 20% 18%;
+    --input: 252 20% 18%;
+    --ring: 264 100% 56%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 252 30% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 264 100% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 252 20% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 252 20% 18%;
+    --sidebar-ring: 264 100% 56%;
+
+    /* Custom tokens */
+    --purple-glow: 264 100% 56%;
+    --violet-accent: 271 91% 65%;
+    --surface: 252 25% 10%;
+    --text-secondary: 240 5% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+/* Grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Purple glow effect */
+.purple-glow {
+  box-shadow: 0 0 60px 20px hsl(264 100% 56% / 0.3);
+}
+
+.purple-glow-sm {
+  box-shadow: 0 0 30px 10px hsl(264 100% 56% / 0.2);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Card hover glow */
+.card-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 40px 8px hsl(264 100% 56% / 0.15);
+  transform: translateY(-4px);
+}
+
+/* Button glow pulse */
+.btn-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px 4px hsl(264 100% 56% / 0.4);
+}
+
+/* Gradient mesh background */
+.gradient-mesh {
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 40%, hsl(264 100% 56% / 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 60%, hsl(271 91% 65% / 0.08) 0%, transparent 60%);
+}
+
+/* Purple gradient bg for CTA */
+.cta-gradient {
+  background: linear-gradient(135deg, hsl(264 100% 30% / 0.8) 0%, hsl(271 91% 40% / 0.6) 50%, hsl(264 100% 20% / 0.9) 100%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(252 30% 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(252 20% 20%);
+  border-radius: 3px;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45); }
+  50% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.7); }
+}
