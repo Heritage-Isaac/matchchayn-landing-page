@@ -57,7 +57,7 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="space-y-3">
             <h4 className="font-heading font-semibold text-sm text-foreground">Stay in the loop</h4>
-            <p className="text-sm text-muted-foreground">Get updates on features, events, and $CHAIN rewards.</p>
+            <p className="text-sm text-muted-foreground">Get updates on features, launches, and curated events.</p>
             <div className="flex gap-2">
               <input
                 type="email"
