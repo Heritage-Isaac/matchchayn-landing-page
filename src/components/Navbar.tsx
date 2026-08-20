@@ -31,7 +31,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="MatchChayn" className="h-8 w-8" />
-          <span className="font-heading font-bold text-lg text-foreground tracking-tight">MATCHCHAYN</span>
+          <span className="font-hero text-xl text-foreground tracking-tight">MatchChayn</span>
         </Link>
 
         {/* Desktop nav */}
@@ -55,8 +55,9 @@ const Navbar = () => {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost-pill" size="sm">Sign up</Button>
-          <Button variant="pill" size="sm">Login</Button>
+          <Button variant="pill" size="sm" asChild>
+            <a href="/#waitlist">Join waitlist</a>
+          </Button>
         </div>
 
         {/* Mobile hamburger */}
@@ -84,8 +85,9 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="flex gap-3 mt-4">
-            <Button variant="ghost-pill" size="sm" className="flex-1">Sign up</Button>
-            <Button variant="pill" size="sm" className="flex-1">Login</Button>
+            <Button variant="pill" size="sm" className="flex-1" asChild>
+              <a href="/#waitlist">Join waitlist</a>
+            </Button>
           </div>
         </div>
       )}
