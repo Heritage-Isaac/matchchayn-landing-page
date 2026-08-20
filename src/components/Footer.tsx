@@ -11,10 +11,10 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img src={logo} alt="MatchChayn" className="h-8 w-8" />
-              <span className="font-heading font-bold text-lg text-foreground">MATCHCHAYN</span>
+              <span className="font-hero text-xl text-foreground">MatchChayn</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The first DateFi app on Solana. Find love on-chain with Web3 professionals.
+              Where professionals find love. Intentional matching, curated networking, and events that bring people together.
             </p>
             <div className="flex gap-3">
               {["X", "Discord", "TG", "IG"].map((s) => (
@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Product */}
           <div className="space-y-3">
             <h4 className="font-heading font-semibold text-sm text-foreground">Product</h4>
-            {["Features", "Download App", "Web App", "$CHAIN Token", "Events"].map((item) => (
+            {["Features", "Join Waitlist", "Web App", "Private Mode", "Events"].map((item) => (
               <a key={item} href="#" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
                 {item}
               </a>
@@ -57,7 +57,7 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="space-y-3">
             <h4 className="font-heading font-semibold text-sm text-foreground">Stay in the loop</h4>
-            <p className="text-sm text-muted-foreground">Get updates on features, events, and $CHAIN rewards.</p>
+            <p className="text-sm text-muted-foreground">Get updates on features, launches, and curated events.</p>
             <div className="flex gap-2">
               <input
                 type="email"

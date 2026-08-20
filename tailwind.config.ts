@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"DM Sans"', 'sans-serif'],
-        hero: ['"Space Grotesk"', 'sans-serif'],
-        body: ['"DM Sans"', 'sans-serif'],
+        heading: ['Manrope', 'sans-serif'],
+        hero: ['"Instrument Serif"', 'Georgia', 'serif'],
+        body: ['Manrope', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
