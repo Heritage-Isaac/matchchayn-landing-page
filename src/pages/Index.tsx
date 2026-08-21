@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
+import DownloadAppButton from "@/components/DownloadAppButton";
 import phoneMockup from "@/assets/phone-mockup-home.png";
 import webappScreenshot from "@/assets/webapp-screenshot.png";
 import logo from "@/assets/logo.png";
@@ -89,9 +90,7 @@ const Index = () => {
                     Join waitlist <ArrowUpRight size={16} />
                   </a>
                 </Button>
-                <Button variant="ghost-pill" size="lg" disabled>
-                  Download app — coming soon
-                </Button>
+                <DownloadAppButton />
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-3 pt-4 border-t border-border/60">
                 {["Intentional matching", "Curated events", "Private Mode"].map((s) => (
@@ -153,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-24 border-t border-border/60">
+      <section id="how-it-works" className="py-24 border-t border-border/60 scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <span className="eyebrow">How MatchChayn works</span>
@@ -175,7 +174,7 @@ const Index = () => {
       </section>
 
       {/* WHY */}
-      <section className="py-24">
+      <section id="why" className="py-24 scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="max-w-2xl mb-14">
@@ -200,7 +199,7 @@ const Index = () => {
       </section>
 
       {/* MORE THAN DATING */}
-      <section className="py-24 border-t border-border/60">
+      <section id="more-than-dating" className="py-24 border-t border-border/60 scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -234,7 +233,7 @@ const Index = () => {
         </div>
       </section>
 
-      <div id="waitlist">
+      <div id="waitlist" className="scroll-mt-24">
         <CTABanner
           eyebrow="Join the waitlist"
           headline="Ready to meet someone who matches your world?"
