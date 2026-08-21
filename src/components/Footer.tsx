@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 const Footer = () => {
   return (
     <footer className="border-t border-border bg-background relative">
-      <div className="container mx-auto px-4 lg:px-8 py-16">
+      <div className="container mx-auto px-6 lg:px-[100px] py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="space-y-4">

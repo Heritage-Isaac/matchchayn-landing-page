@@ -70,7 +70,7 @@ const Index = () => {
       <section className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 gradient-mesh" />
         <div className="absolute inset-0 hairline-grid opacity-[0.35]" />
-        <div className="relative container mx-auto px-4 lg:px-8">
+        <div className="relative container mx-auto px-6 lg:px-[100px]">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
             <div className="space-y-8">
               <span className="eyebrow">MatchChayn</span>
@@ -134,7 +134,7 @@ const Index = () => {
 
       {/* INTRO */}
       <section className="py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="grid lg:grid-cols-2 gap-14 items-start">
               <h2 className="font-hero text-4xl md:text-5xl leading-[1.08] tracking-[-0.02em]">
@@ -154,7 +154,7 @@ const Index = () => {
 
       {/* HOW IT WORKS */}
       <section className="py-24 border-t border-border/60">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <span className="eyebrow">How MatchChayn works</span>
             <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-14 tracking-[-0.02em]">Three steps to the right person.</h2>
@@ -176,7 +176,7 @@ const Index = () => {
 
       {/* WHY */}
       <section className="py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="max-w-2xl mb-14">
               <span className="eyebrow">Why professionals choose MatchChayn</span>
@@ -201,7 +201,7 @@ const Index = () => {
 
       {/* MORE THAN DATING */}
       <section className="py-24 border-t border-border/60">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="grid lg:grid-cols-2 gap-14 items-center">
               <div>

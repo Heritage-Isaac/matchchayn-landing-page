@@ -27,7 +27,7 @@ const Navbar = () => {
         scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
+      <div className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-[100px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="MatchChayn" className="h-8 w-8" />
