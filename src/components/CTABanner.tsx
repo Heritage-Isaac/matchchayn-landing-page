@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import DownloadAppButton from "@/components/DownloadAppButton";
 import { ArrowUpRight } from "lucide-react";
 
 interface CTABannerProps {
