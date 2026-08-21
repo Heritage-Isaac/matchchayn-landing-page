@@ -1,22 +1,34 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Features", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Community", href: "/community" },
+  { label: "How it works", id: "how-it-works" },
+  { label: "Why MatchChayn", id: "why" },
+  { label: "More than dating", id: "more-than-dating" },
+  { label: "Waitlist", id: "waitlist" },
 ];
+
+const scrollToId = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
+  const [active, setActive] = useState("how-it-works");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const current = navLinks
+        .map((l) => ({ id: l.id, el: document.getElementById(l.id) }))
+        .filter((l) => l.el)
+        .reduce((acc, l) => (l.el!.getBoundingClientRect().top <= 140 ? l.id : acc), "");
+      if (current) setActive(current);
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,67 +40,58 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-[100px]">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
           <img src={logo} alt="MatchChayn" className="h-8 w-8" />
           <span className="font-hero text-xl text-foreground tracking-tight">MatchChayn</span>
-        </Link>
+        </button>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
-            <Link key={link.href} to={link.href}>
-              <Button
-                variant="nav-ghost"
-                size="sm"
-                className={
-                  location.pathname === link.href
-                    ? "text-foreground border-b-2 border-primary rounded-none"
-                    : ""
-                }
-              >
-                {link.label}
-              </Button>
-            </Link>
+            <Button
+              key={link.id}
+              variant="nav-ghost"
+              size="sm"
+              onClick={() => scrollToId(link.id)}
+              className={active === link.id ? "text-foreground" : ""}
+            >
+              {link.label}
+            </Button>
           ))}
         </div>
 
-        {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="pill" size="sm" asChild>
-            <a href="/#waitlist">Join waitlist</a>
+          <Button variant="pill" size="sm" onClick={() => scrollToId("waitlist")}>
+            Join waitlist
           </Button>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
+        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border px-4 pb-4">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border px-6 pb-4">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => setMobileOpen(false)}
-              className={`block py-3 text-sm font-medium ${
-                location.pathname === link.href ? "text-primary" : "text-muted-foreground"
+            <button
+              key={link.id}
+              onClick={() => {
+                setMobileOpen(false);
+                scrollToId(link.id);
+              }}
+              className={`block w-full text-left py-3 text-sm font-medium ${
+                active === link.id ? "text-primary" : "text-muted-foreground"
               }`}
             >
               {link.label}
-            </Link>
+            </button>
           ))}
-          <div className="flex gap-3 mt-4">
-            <Button variant="pill" size="sm" className="flex-1" asChild>
-              <a href="/#waitlist">Join waitlist</a>
-            </Button>
-          </div>
+          <Button variant="pill" size="sm" className="w-full mt-4" onClick={() => { setMobileOpen(false); scrollToId("waitlist"); }}>
+            Join waitlist
+          </Button>
         </div>
       )}
     </nav>
