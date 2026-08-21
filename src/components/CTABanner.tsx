@@ -21,15 +21,13 @@ const CTABanner = ({
         <span className="eyebrow">{eyebrow}</span>
         <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-6 leading-[1.08] tracking-[-0.02em]">{headline}</h2>
         <p className="text-lg text-muted-foreground leading-relaxed mb-9">{sub}</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
           <Button variant="pill" size="xl" asChild>
             <a href="#waitlist">
               Join waitlist <ArrowUpRight size={16} />
             </a>
           </Button>
-          <Button variant="ghost-pill" size="lg" disabled>
-            Download app — coming soon
-          </Button>
+          <DownloadAppButton className="h-14 px-9 text-base" />
         </div>
       </div>
     </section>
