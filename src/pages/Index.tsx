@@ -64,8 +64,6 @@ const reasons = [
 
 const pillars = ["Intentional People", "Meaningful Connections", "Professional Networking", "Curated Events"];
 
-const industries = ["Tech", "Medicine", "Finance", "Aviation", "Law", "Web3", "Design", "Academia"];
-
 const Index = () => {
   const { open: openWaitlist } = useWaitlist();
   return (
@@ -76,7 +74,7 @@ const Index = () => {
         <div className="absolute inset-0 hairline-grid opacity-[0.35]" />
         <div className="relative container mx-auto px-6 lg:px-[100px]">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
-            <motion.div className="space-y-8" initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.12 } } }}>
+            <motion.div className="space-y-8" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
               <span className="eyebrow">MatchChayn</span>
               <h1 className="font-hero text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
                 Where Professionals
