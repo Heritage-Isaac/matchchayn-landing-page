@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useWaitlist } from "@/components/WaitlistModal";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "How it works", id: "how-it-works" },
@@ -18,6 +20,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("how-it-works");
+  const { open: openWaitlist } = useWaitlist();
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,7 +37,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
       }`}
@@ -61,7 +67,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="pill" size="sm" onClick={() => scrollToId("waitlist")}>
+          <Button variant="pill" size="sm" onClick={openWaitlist}>
             Join waitlist
           </Button>
         </div>
@@ -89,12 +95,12 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <Button variant="pill" size="sm" className="w-full mt-4" onClick={() => { setMobileOpen(false); scrollToId("waitlist"); }}>
+          <Button variant="pill" size="sm" className="w-full mt-4" onClick={() => { setMobileOpen(false); openWaitlist(); }}>
             Join waitlist
           </Button>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

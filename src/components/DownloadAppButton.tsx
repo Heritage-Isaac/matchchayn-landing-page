@@ -24,7 +24,7 @@ const DownloadAppButton = ({ className }: { className?: string }) => (
     <AppleIcon />
     <PlayIcon />
     <span>Download app</span>
-    <span className="absolute -top-2.5 -right-2 rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-md">
+    <span className="absolute -top-1.5 -right-1 rounded-full bg-primary px-1.5 py-px text-[8px] font-semibold uppercase tracking-[0.08em] leading-tight text-primary-foreground shadow-md">
       Coming soon
     </span>
   </button>

@@ -15,6 +15,8 @@ import {
   MessagesSquare,
   ArrowUpRight,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import { useWaitlist } from "@/components/WaitlistModal";
 
 const steps = [
   {
@@ -62,9 +64,8 @@ const reasons = [
 
 const pillars = ["Intentional People", "Meaningful Connections", "Professional Networking", "Curated Events"];
 
-const industries = ["Tech", "Medicine", "Finance", "Aviation", "Law", "Web3", "Design", "Academia"];
-
 const Index = () => {
+  const { open: openWaitlist } = useWaitlist();
   return (
     <main className="relative">
       {/* HERO */}
@@ -73,7 +74,7 @@ const Index = () => {
         <div className="absolute inset-0 hairline-grid opacity-[0.35]" />
         <div className="relative container mx-auto px-6 lg:px-[100px]">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
-            <div className="space-y-8">
+            <motion.div className="space-y-8" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
               <span className="eyebrow">MatchChayn</span>
               <h1 className="font-hero text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
                 Where Professionals
@@ -85,10 +86,8 @@ const Index = () => {
                 discovering the right people easier.
               </p>
               <div className="flex flex-wrap items-center gap-4">
-                <Button variant="pill" size="lg" asChild>
-                  <a href="#waitlist">
-                    Join waitlist <ArrowUpRight size={16} />
-                  </a>
+                <Button variant="pill" size="lg" onClick={openWaitlist}>
+                  Join waitlist <ArrowUpRight size={16} />
                 </Button>
                 <DownloadAppButton />
               </div>
@@ -99,9 +98,9 @@ const Index = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative flex justify-center lg:justify-end">
+            <motion.div className="relative flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
               <div className="relative animate-float">
                 <div className="absolute inset-6 rounded-[3rem] purple-glow opacity-30 blur-3xl" />
                 <img src={phoneMockup} alt="MatchChayn app profile discovery screen" className="relative w-72 md:w-80" />
@@ -110,22 +109,18 @@ const Index = () => {
                   <p className="font-hero text-lg">Finance · Web3</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* MARQUEE */}
       <div className="py-6 overflow-hidden border-y border-border/60">
-        <div className="animate-marquee flex gap-16 whitespace-nowrap">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="flex items-center gap-10 opacity-30">
-              {industries.map((ind) => (
-                <span key={ind} className="text-sm uppercase tracking-[0.28em] text-muted-foreground">
-                  {ind}
-                </span>
-              ))}
-              <img src={logo} alt="" className="h-5 w-5" />
+        <div className="animate-marquee flex gap-14 whitespace-nowrap">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-3 opacity-30 shrink-0">
+              <img src={logo} alt="" className="h-6 w-6" />
+              <span className="font-hero text-lg tracking-tight text-muted-foreground">MatchChayn</span>
             </div>
           ))}
         </div>

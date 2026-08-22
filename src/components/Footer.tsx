@@ -1,11 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { Twitter, Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Send, Youtube, Facebook, Music2 } from "lucide-react";
 import logo from "@/assets/logo.png";
 
+const XIcon = ({ size = 16 }: { size?: number }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+    <path d="M18.9 2H22l-6.8 7.8L23.3 22h-6.6l-5.2-6.8L5.5 22H2.4l7.3-8.3L1.2 2h6.7l4.8 6.4L18.9 2zm-1.1 18h1.8L6.4 3.8H4.5L17.8 20z" />
+  </svg>
+);
+
 const socials = [
-  { label: "Twitter", Icon: Twitter, href: "#" },
-  { label: "Instagram", Icon: Instagram, href: "#" },
-  { label: "LinkedIn", Icon: Linkedin, href: "#" },
+  { label: "X", Icon: XIcon, href: "https://x.com/MatchChayn" },
+  { label: "Instagram", Icon: Instagram, href: "https://www.instagram.com/matchchayn/" },
+  { label: "LinkedIn", Icon: Linkedin, href: "https://www.linkedin.com/company/matchchayn" },
+  { label: "Telegram", Icon: Send, href: "https://t.me/matchchayn" },
+  { label: "TikTok", Icon: Music2, href: "https://tiktok.com/@matchchayn" },
+  { label: "YouTube", Icon: Youtube, href: "https://www.youtube.com/@MatchChayn" },
+  { label: "Facebook", Icon: Facebook, href: "https://www.facebook.com/share/1Ae6wtP7em" },
 ];
 
 const scrollToId = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -31,11 +41,13 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Where professionals find love. Intentional matching, curated networking, and events that bring people together.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {socials.map(({ label, Icon, href }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors"
                 >
