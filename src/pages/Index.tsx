@@ -258,14 +258,24 @@ const Index = () => {
                   Where intentional people connect, meaningful relationships begin.
                 </p>
               </div>
-              <div className="relative">
+              <div className="relative space-y-6">
                 <div className="absolute inset-10 purple-glow opacity-20 blur-3xl" />
+                <img
+                  src={coupleEvent}
+                  alt="Two professionals connecting at a curated MatchChayn event"
+                  loading="lazy"
+                  width={1008}
+                  height={1200}
+                  className="relative w-full rounded-2xl border border-border object-cover aspect-[4/3]"
+                />
                 <img
                   src={webappScreenshot}
                   alt="MatchChayn web experience"
+                  loading="lazy"
                   className="relative w-full rounded-2xl border border-border"
                 />
               </div>
+
             </div>
           </ScrollReveal>
         </div>
