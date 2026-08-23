@@ -130,21 +130,61 @@ const Index = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
-            <div className="grid lg:grid-cols-2 gap-14 items-start">
-              <h2 className="font-hero text-4xl md:text-5xl leading-[1.08] tracking-[-0.02em]">
-                A Dating Platform Built for Professionals.
-              </h2>
-              <div className="space-y-5 text-lg text-muted-foreground leading-relaxed lg:pt-2">
-                <p>Most dating apps leave you sorting through endless profiles with no clear direction.</p>
-                <p>
-                  MatchChayn makes discovery easier by helping you connect with professionals based on the industries,
-                  communities, and values that matter to you.
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
+              <div className="relative">
+                <div className="absolute -inset-6 purple-glow opacity-20 blur-3xl" />
+                <img
+                  src={coupleRooftop}
+                  alt="Two professionals smiling together on a rooftop at dusk"
+                  loading="lazy"
+                  width={1200}
+                  height={1504}
+                  className="relative w-full rounded-2xl border border-border object-cover aspect-[4/5]"
+                />
+              </div>
+              <div className="space-y-6">
+                <span className="eyebrow">Made for real connection</span>
+                <h2 className="font-hero text-4xl md:text-5xl leading-[1.08] tracking-[-0.02em]">
+                  A Dating Platform Built for Professionals.
+                </h2>
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
+                  <p>Most dating apps leave you sorting through endless profiles with no clear direction.</p>
+                  <p>
+                    MatchChayn makes discovery easier by helping you connect with professionals based on the industries,
+                    communities, and values that matter to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* LOVE BAND */}
+      <section className="pb-24">
+        <div className="container mx-auto px-6 lg:px-[100px]">
+          <ScrollReveal>
+            <div className="relative overflow-hidden rounded-3xl border border-border">
+              <img
+                src={coupleCafe}
+                alt="A couple holding hands across a table on a date"
+                loading="lazy"
+                width={1600}
+                height={912}
+                className="w-full h-[320px] md:h-[460px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+              <div className="absolute bottom-0 p-8 lg:p-12 max-w-xl">
+                <span className="eyebrow">Real stories</span>
+                <p className="font-hero text-3xl md:text-4xl mt-3 leading-[1.1] tracking-[-0.02em]">
+                  Love that starts with something in common.
                 </p>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
 
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="py-24 border-t border-border/60 scroll-mt-24">
