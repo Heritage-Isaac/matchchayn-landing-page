@@ -138,10 +138,10 @@ const Index = () => {
                 <div className="absolute -inset-6 purple-glow opacity-20 blur-3xl" />
                 <img
                   src={coupleRooftop}
-                  alt="Two professionals smiling together on a rooftop at dusk"
+                  alt="A black couple embracing and smiling on a rooftop at dusk"
                   loading="lazy"
-                  width={1200}
-                  height={1504}
+                  width={1024}
+                  height={1280}
                   className="relative w-full rounded-2xl border border-border object-cover aspect-[4/5]"
                 />
               </div>
@@ -170,10 +170,10 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-3xl border border-border">
               <img
                 src={coupleCafe}
-                alt="A couple holding hands across a table on a date"
+                alt="A black couple holding hands across a cafe table, smiling in love"
                 loading="lazy"
-                width={1600}
-                height={912}
+                width={1280}
+                height={736}
                 className="w-full h-[320px] md:h-[460px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
@@ -262,10 +262,10 @@ const Index = () => {
                 <div className="absolute inset-10 purple-glow opacity-20 blur-3xl" />
                 <img
                   src={coupleEvent}
-                  alt="Two professionals connecting at a curated MatchChayn event"
+                  alt="A black couple hugging and laughing together at an elegant event"
                   loading="lazy"
-                  width={1008}
-                  height={1200}
+                  width={1024}
+                  height={1280}
                   className="relative w-full rounded-2xl border border-border object-cover aspect-[4/3]"
                 />
                 <img
