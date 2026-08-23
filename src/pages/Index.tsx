@@ -134,11 +134,19 @@ const Index = () => {
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
-              <div className="relative">
+              <div className="relative space-y-6">
                 <div className="absolute -inset-6 purple-glow opacity-20 blur-3xl" />
                 <img
                   src={coupleRooftop}
                   alt="A black couple embracing and smiling on a rooftop at dusk"
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                  className="relative w-full rounded-2xl border border-border object-cover aspect-[4/5]"
+                />
+                <img
+                  src={coupleWhite}
+                  alt="A white couple embracing and smiling at sunset"
                   loading="lazy"
                   width={1024}
                   height={1280}
@@ -258,7 +266,7 @@ const Index = () => {
                   Where intentional people connect, meaningful relationships begin.
                 </p>
               </div>
-              <div className="relative space-y-6">
+              <div className="relative">
                 <div className="absolute inset-10 purple-glow opacity-20 blur-3xl" />
                 <img
                   src={coupleEvent}
@@ -267,12 +275,6 @@ const Index = () => {
                   width={1024}
                   height={1280}
                   className="relative w-full rounded-2xl border border-border object-cover aspect-[4/3]"
-                />
-                <img
-                  src={webappScreenshot}
-                  alt="MatchChayn web experience"
-                  loading="lazy"
-                  className="relative w-full rounded-2xl border border-border"
                 />
               </div>
 
