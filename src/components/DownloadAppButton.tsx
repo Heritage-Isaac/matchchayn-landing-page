@@ -17,17 +17,18 @@ const DownloadAppButton = ({ className }: { className?: string }) => (
     type="button"
     disabled
     className={cn(
-      "relative inline-flex items-center gap-3 rounded-full bg-white px-7 h-12 text-sm font-semibold text-[#0D0B1A] shadow-lg cursor-default",
+      "relative inline-flex items-center gap-2 rounded-full bg-white px-5 h-12 text-sm font-semibold text-[#0D0B1A] shadow-lg cursor-default",
       className,
     )}
   >
     <AppleIcon />
     <PlayIcon />
     <span>Download app</span>
-    <span className="absolute -top-1.5 -right-1 rounded-full bg-primary px-1.5 py-px text-[8px] font-semibold uppercase tracking-[0.08em] leading-tight text-primary-foreground shadow-md">
+    <span className="rounded-full bg-primary px-2 py-0.5 text-[8px] font-semibold uppercase tracking-[0.08em] leading-none text-primary-foreground shadow-sm">
       Coming soon
     </span>
   </button>
 );
+
 
 export default DownloadAppButton;
