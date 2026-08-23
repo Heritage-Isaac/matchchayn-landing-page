@@ -13,22 +13,19 @@ const PlayIcon = () => (
 );
 
 const DownloadAppButton = ({ className }: { className?: string }) => (
-  <button
-    type="button"
-    disabled
-    className={cn(
-      "relative inline-flex items-center gap-2 rounded-full bg-white px-5 h-12 text-sm font-semibold text-[#0D0B1A] shadow-lg cursor-default",
-      className,
-    )}
-  >
-    <AppleIcon />
-    <PlayIcon />
-    <span>Download app</span>
-    <span className="rounded-full bg-primary px-2 py-0.5 text-[8px] font-semibold uppercase tracking-[0.08em] leading-none text-primary-foreground shadow-sm">
-      Coming soon
-    </span>
-  </button>
+  <div className={cn("relative inline-flex flex-col items-center", className)}>
+    <div className="absolute -top-2 right-4 z-10 flex flex-col items-center">
+      <span className="inline-flex items-center rounded bg-primary px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.08em] text-primary-foreground shadow-sm">
+        Coming soon
+      </span>
+      <div className="h-0 w-0 border-l-[3px] border-r-[3px] border-t-[4px] border-l-transparent border-r-transparent border-t-primary" />
+    </div>
+    <div className="inline-flex items-center gap-2 rounded-full bg-white px-5 h-12 text-sm font-semibold text-[#0D0B1A] shadow-lg cursor-default">
+      <AppleIcon />
+      <PlayIcon />
+      <span>Download app</span>
+    </div>
+  </div>
 );
-
 
 export default DownloadAppButton;
