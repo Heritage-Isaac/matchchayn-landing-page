@@ -137,14 +137,6 @@ const Index = () => {
               <div className="relative space-y-6">
                 <div className="absolute -inset-6 purple-glow opacity-20 blur-3xl" />
                 <img
-                  src={coupleRooftop}
-                  alt="A black couple embracing and smiling on a rooftop at dusk"
-                  loading="lazy"
-                  width={1024}
-                  height={1280}
-                  className="relative w-full rounded-2xl border border-border object-cover aspect-[4/5]"
-                />
-                <img
                   src={coupleWhite}
                   alt="A white couple embracing and smiling at sunset"
                   loading="lazy"
