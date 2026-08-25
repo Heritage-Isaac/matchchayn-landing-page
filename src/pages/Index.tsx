@@ -132,16 +132,16 @@ const Index = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
-              <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30">
+            <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-14 items-start">
+              <div className="relative h-full">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-full">
                   <img
                     src={coupleIntro}
                     alt="A happy black couple embracing and smiling together"
                     loading="lazy"
                     width={1024}
                     height={1280}
-                    className="relative w-full object-cover aspect-[4/3]"
+                    className="relative w-full h-full object-cover object-bottom"
                   />
                 </div>
               </div>
