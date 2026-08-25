@@ -4,7 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import DownloadAppButton from "@/components/DownloadAppButton";
 import phoneMockup from "@/assets/phone-mockup-home.png";
 import coupleWhite from "@/assets/couple-white.jpg";
-import coupleRooftop from "@/assets/couple-rooftop.jpg";
+
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
 import logo from "@/assets/logo.png";
