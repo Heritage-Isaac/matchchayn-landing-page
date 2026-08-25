@@ -4,7 +4,7 @@ import CTABanner from "@/components/CTABanner";
 import DownloadAppButton from "@/components/DownloadAppButton";
 import phoneMockup from "@/assets/phone-mockup-home.png";
 import coupleWhite from "@/assets/couple-white.jpg";
-import coupleRooftop from "@/assets/couple-rooftop.jpg";
+
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
 import logo from "@/assets/logo.png";
@@ -136,14 +136,6 @@ const Index = () => {
             <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
               <div className="relative space-y-6">
                 <div className="absolute -inset-6 purple-glow opacity-20 blur-3xl" />
-                <img
-                  src={coupleRooftop}
-                  alt="A black couple embracing and smiling on a rooftop at dusk"
-                  loading="lazy"
-                  width={1024}
-                  height={1280}
-                  className="relative w-full rounded-2xl border border-border object-cover aspect-[4/5]"
-                />
                 <img
                   src={coupleWhite}
                   alt="A white couple embracing and smiling at sunset"
