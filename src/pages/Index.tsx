@@ -136,7 +136,7 @@ const Index = () => {
               <div className="relative">
                 <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30">
                   <img
-                    src={coupleIntro.url}
+                    src={coupleIntro}
                     alt="A happy black couple embracing and smiling together"
                     loading="lazy"
                     width={1024}
