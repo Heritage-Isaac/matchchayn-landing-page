@@ -23,7 +23,7 @@ const CTABanner = ({
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="relative container mx-auto px-6 lg:px-[100px] max-w-3xl text-center">
         <span className="eyebrow">{eyebrow}</span>
         <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-6 leading-[1.08] tracking-[-0.02em]">{headline}</h2>
-        <p className="text-lg text-foreground leading-relaxed mb-9">{sub}</p>
+        <p className="text-lg text-muted-foreground leading-relaxed mb-9">{sub}</p>
         <div className="flex flex-wrap gap-4 justify-center items-center">
           <Button variant="pill" size="lg" onClick={openWaitlist}>
             Join waitlist <ArrowUpRight size={16} />
