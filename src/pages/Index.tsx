@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
 import DownloadAppButton from "@/components/DownloadAppButton";
 import phoneMockup from "@/assets/phone-mockup-home.png";
-import coupleIntro from "@/assets/couple-intro.png.asset.json";
+import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
 import logo from "@/assets/logo.png";
