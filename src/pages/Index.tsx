@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
 import DownloadAppButton from "@/components/DownloadAppButton";
 import phoneMockup from "@/assets/phone-mockup-home.png";
-import coupleIntro from "@/assets/couple-intro.png.asset.json";
+import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
 import logo from "@/assets/logo.png";
@@ -132,23 +132,17 @@ const Index = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
-              <div className="relative">
-                {/* Decorative background frame */}
-                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/20 via-accent/10 to-transparent blur-2xl" />
-                <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-primary/40 via-accent/20 to-primary/5" />
-                <div className="relative p-1.5 rounded-[2rem] bg-gradient-to-br from-border/80 via-border/40 to-border/20">
-                  <div className="relative overflow-hidden rounded-[calc(2rem-6px)]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
-                    <img
-                      src={coupleIntro.url}
-                      alt="A happy black couple embracing and smiling together"
-                      loading="lazy"
-                      width={1024}
-                      height={1280}
-                      className="relative w-full object-cover aspect-[4/5]"
-                    />
-                  </div>
+            <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-14 items-stretch">
+              <div className="relative h-full">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-full">
+                  <img
+                    src={coupleIntro}
+                    alt="A happy black couple embracing and smiling together"
+                    loading="lazy"
+                    width={1024}
+                    height={1280}
+                    className="relative w-full h-full object-cover object-bottom"
+                  />
                 </div>
               </div>
               <div className="space-y-6">
