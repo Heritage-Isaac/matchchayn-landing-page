@@ -152,7 +152,7 @@ const Index = () => {
                   <br />
                   Built for Professionals.
                 </h2>
-                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify">
+                <div className="space-y-5 text-base md:text-[17px] text-muted-foreground leading-relaxed text-justify">
                   <p>
                     Most dating apps leave you sorting through endless profiles
                     <br className="hidden md:block" />
