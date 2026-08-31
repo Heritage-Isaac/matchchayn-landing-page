@@ -134,7 +134,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-stretch">
               <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[440px] md:h-[420px] lg:h-[90%] flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[440px] md:h-[420px] lg:h-[400px] flex items-center justify-center">
                   <img
                     src={coupleIntro}
                     alt="A happy black couple embracing and smiling together"
@@ -152,18 +152,16 @@ const Index = () => {
                   <br />
                   Built for Professionals.
                 </h2>
-                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify">
+                <div className="space-y-5 text-base md:text-[17px] text-muted-foreground leading-relaxed text-justify">
                   <p>
-                    Most dating apps leave you sorting through
+                    Most dating apps leave you sorting through endless profiles
                     <br className="hidden md:block" />
-                    endless profiles with no clear direction.
+                    with no clear direction.
                   </p>
                   <p>
-                    MatchChayn makes discovery easier by helping you connect
+                    MatchChayn makes discovery easier by helping you connect with
                     <br className="hidden md:block" />
-                    with professionals based on the industries, communities,
-                    <br className="hidden md:block" />
-                    and values that matter to you.
+                    professionals based on the industries, communities, and values that matter to you.
                   </p>
                 </div>
               </div>
