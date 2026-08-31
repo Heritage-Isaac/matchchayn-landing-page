@@ -84,11 +84,11 @@
 
 /* Purple glow effect */
 .purple-glow {
-  box-shadow: 0 0 60px 20px hsl(264 100% 56% / 0.3);
+  box-shadow: 0 0 60px 20px hsl(271 91% 65% / 0.3);
 }
 
 .purple-glow-sm {
-  box-shadow: 0 0 30px 10px hsl(264 100% 56% / 0.2);
+  box-shadow: 0 0 30px 10px hsl(271 91% 65% / 0.2);
 }
 
 /* Floating animation */
@@ -117,7 +117,7 @@
 }
 
 .card-glow:hover {
-  box-shadow: 0 0 40px 8px hsl(264 100% 56% / 0.15);
+  box-shadow: 0 0 40px 8px hsl(271 91% 65% / 0.15);
   transform: translateY(-4px);
 }
 
@@ -127,7 +127,7 @@
 }
 
 .btn-glow:hover {
-  box-shadow: 0 0 20px 4px hsl(264 100% 56% / 0.4);
+  box-shadow: 0 0 20px 4px hsl(271 91% 65% / 0.4);
 }
 
 /* Gradient mesh background */
