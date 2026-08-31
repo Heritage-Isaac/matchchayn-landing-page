@@ -132,29 +132,38 @@ const Index = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
-            <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-14 items-center">
+            <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-14 items-stretch">
               <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[280px] md:h-[340px]">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[380px] md:h-[420px] lg:h-full">
                   <img
                     src={coupleIntro}
                     alt="A happy black couple embracing and smiling together"
                     loading="lazy"
                     width={1024}
                     height={1280}
-                    className="relative w-full h-full object-cover object-bottom scale-125 origin-bottom"
+                    className="relative w-full h-full object-cover object-center"
                   />
                 </div>
               </div>
               <div className="space-y-6">
                 <span className="eyebrow">Made for real connection</span>
                 <h2 className="font-hero text-4xl md:text-5xl leading-[1.08] tracking-[-0.02em]">
-                  A Dating Platform Built for Professionals.
+                  A Dating Platform
+                  <br />
+                  Built for Professionals.
                 </h2>
                 <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
-                  <p>Most dating apps leave you sorting through endless profiles with no clear direction.</p>
                   <p>
-                    MatchChayn makes discovery easier by helping you connect with professionals based on the industries,
-                    communities, and values that matter to you.
+                    Most dating apps leave you sorting through
+                    <br className="hidden md:block" />
+                    endless profiles with no clear direction.
+                  </p>
+                  <p>
+                    MatchChayn makes discovery easier by helping you connect
+                    <br className="hidden md:block" />
+                    with professionals based on the industries, communities,
+                    <br className="hidden md:block" />
+                    and values that matter to you.
                   </p>
                 </div>
               </div>
