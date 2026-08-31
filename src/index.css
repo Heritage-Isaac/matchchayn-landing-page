@@ -15,7 +15,7 @@
     --popover: 252 30% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 264 100% 56%;
+    --primary: 271 91% 65%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 270 60% 40%;
@@ -32,7 +32,7 @@
 
     --border: 252 20% 18%;
     --input: 252 20% 18%;
-    --ring: 264 100% 56%;
+    --ring: 271 91% 65%;
 
     --radius: 0.75rem;
 
@@ -46,7 +46,7 @@
     --sidebar-ring: 264 100% 56%;
 
     /* Custom tokens */
-    --purple-glow: 264 100% 56%;
+    --purple-glow: 271 91% 65%;
     --violet-accent: 271 91% 65%;
     --surface: 252 25% 10%;
     --text-secondary: 240 5% 65%;
@@ -84,11 +84,11 @@
 
 /* Purple glow effect */
 .purple-glow {
-  box-shadow: 0 0 60px 20px hsl(264 100% 56% / 0.3);
+  box-shadow: 0 0 60px 20px hsl(271 91% 65% / 0.3);
 }
 
 .purple-glow-sm {
-  box-shadow: 0 0 30px 10px hsl(264 100% 56% / 0.2);
+  box-shadow: 0 0 30px 10px hsl(271 91% 65% / 0.2);
 }
 
 /* Floating animation */
@@ -117,7 +117,7 @@
 }
 
 .card-glow:hover {
-  box-shadow: 0 0 40px 8px hsl(264 100% 56% / 0.15);
+  box-shadow: 0 0 40px 8px hsl(271 91% 65% / 0.15);
   transform: translateY(-4px);
 }
 
@@ -127,7 +127,7 @@
 }
 
 .btn-glow:hover {
-  box-shadow: 0 0 20px 4px hsl(264 100% 56% / 0.4);
+  box-shadow: 0 0 20px 4px hsl(271 91% 65% / 0.4);
 }
 
 /* Gradient mesh background */
