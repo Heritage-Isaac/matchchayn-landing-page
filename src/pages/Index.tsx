@@ -132,9 +132,9 @@ const Index = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
-            <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-14 items-stretch">
+            <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-stretch">
               <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[380px] md:h-[420px] lg:h-full">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[440px] md:h-[480px] lg:h-full">
                   <img
                     src={coupleIntro}
                     alt="A happy black couple embracing and smiling together"
@@ -152,7 +152,7 @@ const Index = () => {
                   <br />
                   Built for Professionals.
                 </h2>
-                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify">
                   <p>
                     Most dating apps leave you sorting through
                     <br className="hidden md:block" />
