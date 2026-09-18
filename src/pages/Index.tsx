@@ -141,7 +141,7 @@ const Index = () => {
                     loading="lazy"
                     width={1024}
                     height={1280}
-                    className="relative w-full h-full object-cover object-center"
+                    className="relative w-full h-full object-cover object-bottom"
                   />
                 </div>
               </div>
