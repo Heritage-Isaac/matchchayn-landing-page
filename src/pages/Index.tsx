@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
 import DownloadAppButton from "@/components/DownloadAppButton";
-import videoSwipe from "@/assets/matchchayn-video-swipe.png.asset.json";
+import videoSwipe from "@/assets/matchchayn-video-swipe.png";
 import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
@@ -106,7 +106,7 @@ const Index = () => {
               <div className="relative w-full max-w-[554px]">
                 <div className="absolute inset-x-[5%] bottom-[-3%] top-[8%] rounded-2xl purple-glow opacity-40" />
                 <img
-                  src={videoSwipe.url}
+                  src={videoSwipe}
                   alt="MatchChayn video swipe profile for Tiana"
                   className="relative w-full h-auto rounded-2xl"
                 />
