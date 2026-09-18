@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import CTABanner from "@/components/CTABanner";
 import DownloadAppButton from "@/components/DownloadAppButton";
-import phoneMockup from "@/assets/phone-mockup-home.png";
+import videoSwipe from "@/assets/matchchayn-video-swipe.png";
 import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
@@ -103,13 +103,13 @@ const Index = () => {
             </motion.div>
 
             <motion.div className="relative flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="relative animate-float">
-                <div className="absolute inset-6 rounded-[3rem] purple-glow opacity-30 blur-3xl" />
-                <img src={phoneMockup} alt="MatchChayn app profile discovery screen" className="relative w-72 md:w-80" />
-                <div className="absolute -bottom-6 -left-6 glass-card px-4 py-3">
-                  <p className="eyebrow mb-1">Matched on</p>
-                  <p className="font-hero text-lg">Finance · Web3</p>
-                </div>
+              <div className="relative w-full max-w-[554px]">
+                <div className="absolute inset-x-[5%] bottom-[-3%] top-[8%] rounded-2xl purple-glow opacity-40" />
+                <img
+                  src={videoSwipe}
+                  alt="MatchChayn video swipe profile for Tiana"
+                  className="relative w-full h-auto rounded-2xl"
+                />
               </div>
             </motion.div>
           </div>
