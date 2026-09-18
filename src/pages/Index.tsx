@@ -93,9 +93,9 @@ const Index = () => {
                 </Button>
                 <DownloadAppButton />
               </div>
-              <div className="flex flex-wrap gap-x-8 gap-y-3 pt-4 border-t border-border/60">
+              <div className="flex flex-wrap gap-x-5 sm:gap-x-8 gap-y-3 pt-4 border-t border-border/60">
                 {["Intentional matching", "Curated events", "Private Mode"].map((s) => (
-                  <span key={s} className="text-sm text-muted-foreground">
+                  <span key={s} className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
                     {s}
                   </span>
                 ))}
