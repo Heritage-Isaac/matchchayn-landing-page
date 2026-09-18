@@ -134,7 +134,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-stretch">
               <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[440px] md:h-[420px] lg:h-[400px] flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[293px] md:h-[380px] lg:h-[400px] flex items-center justify-center">
                   <img
                     src={coupleIntro}
                     alt="A happy black couple embracing and smiling together"
@@ -161,7 +161,7 @@ const Index = () => {
                   <p>
                     MatchChayn makes discovery easier by helping you connect with
                     <br className="hidden md:block" />
-                    professionals based on the industries, communities, and values that matter to you.
+                    professionals based on profession, personality, interest, location and values that matter to you.
                   </p>
                 </div>
               </div>
