@@ -67,7 +67,7 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
     <Ctx.Provider value={{ open }}>
       {children}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md" onOpenAutoFocus={(event) => event.preventDefault()}>
           {done ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -99,6 +99,14 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
                   onChange={(e) => setName(e.target.value)}
                   maxLength={120}
                 />
+                <input
+                  className={inputClass}
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  maxLength={200}
+                />
                 <Select value={gender} onValueChange={setGender}>
                   <SelectTrigger className="w-full h-12 rounded-full bg-muted border-border px-5 text-sm">
                     <SelectValue placeholder="Gender" />
@@ -111,14 +119,6 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
                     ))}
                   </SelectContent>
                 </Select>
-                <input
-                  className={inputClass}
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  maxLength={200}
-                />
                 {error && <p className="text-sm text-destructive px-1">{error}</p>}
                 <div className="flex gap-3 pt-2">
                   <Button type="submit" variant="pill" className="flex-1" disabled={loading}>
