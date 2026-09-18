@@ -103,7 +103,7 @@ const Index = () => {
             </motion.div>
 
             <motion.div className="relative flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="relative w-full max-w-[554px]">
+              <div className="relative w-full max-w-[480px]">
                 <div className="absolute inset-x-[5%] bottom-[-3%] top-[8%] rounded-2xl purple-glow opacity-40" />
                 <img
                   src={videoSwipe}
