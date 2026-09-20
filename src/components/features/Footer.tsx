@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Instagram, Linkedin, Send, Youtube, Facebook, Music2 } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -35,7 +36,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="MatchChayn" className="h-8 w-8" />
+              <img src={logo.src} alt="MatchChayn" className="h-8 w-8" />
               <span className="font-hero text-xl text-foreground">MatchChayn</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">

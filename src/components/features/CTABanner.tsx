@@ -1,7 +1,8 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import DownloadAppButton from "@/components/DownloadAppButton";
+import DownloadAppButton from "@/components/features/DownloadAppButton";
 import { ArrowUpRight } from "lucide-react";
-import { useWaitlist } from "@/components/WaitlistModal";
+import { useWaitlist } from "@/components/features/WaitlistModal";
 import { motion } from "framer-motion";
 
 interface CTABannerProps {

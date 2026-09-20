@@ -1,7 +1,9 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import ScrollReveal from "@/components/ScrollReveal";
-import CTABanner from "@/components/CTABanner";
-import DownloadAppButton from "@/components/DownloadAppButton";
+import ScrollReveal from "@/components/features/ScrollReveal";
+import CTABanner from "@/components/features/CTABanner";
+import DownloadAppButton from "@/components/features/DownloadAppButton";
 import videoSwipe from "@/assets/matchchayn-video-swipe.png";
 import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
@@ -18,7 +20,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useWaitlist } from "@/components/WaitlistModal";
+import { useWaitlist } from "@/components/features/WaitlistModal";
 
 const steps = [
   {
@@ -66,7 +68,7 @@ const reasons = [
 
 const pillars = ["Intentional People", "Meaningful Connections", "Professional Networking", "Curated Events"];
 
-const Index = () => {
+export default function Index() {
   const { open: openWaitlist } = useWaitlist();
   return (
     <main className="relative">
@@ -104,9 +106,9 @@ const Index = () => {
 
             <motion.div className="relative flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
               <div className="relative w-full max-w-[480px]">
-                <div className="absolute inset-x-[5%] bottom-[-3%] top-[8%] rounded-2xl purple-glow opacity-40" />
+
                 <img
-                  src={videoSwipe}
+                  src={videoSwipe.src}
                   alt="MatchChayn video swipe profile for Tiana"
                   className="relative w-full h-auto rounded-2xl"
                 />
@@ -121,7 +123,7 @@ const Index = () => {
         <div className="animate-marquee flex gap-14 whitespace-nowrap">
           {Array.from({ length: 24 }).map((_, i) => (
             <div key={i} className="flex items-center gap-3 opacity-30 shrink-0">
-              <img src={logo} alt="" className="h-6 w-6" />
+              <img src={logo.src} alt="" className="h-6 w-6" />
               <span className="font-hero text-lg tracking-tight text-muted-foreground">MatchChayn</span>
             </div>
           ))}
@@ -134,9 +136,9 @@ const Index = () => {
           <ScrollReveal>
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-stretch">
               <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[293px] md:h-[420px] lg:h-[400px] flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 h-[293px] sm:h-[450px] md:h-[550px] lg:h-[400px] flex items-end justify-center">
                   <img
-                    src={coupleIntro}
+                    src={coupleIntro.src}
                     alt="A happy black couple embracing and smiling together"
                     loading="lazy"
                     width={1024}
@@ -176,7 +178,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="relative overflow-hidden rounded-3xl border border-border">
               <img
-                src={coupleCafe}
+                src={coupleCafe.src}
                 alt="A black couple holding hands across a cafe table, smiling in love"
                 loading="lazy"
                 width={1280}
@@ -268,7 +270,7 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute inset-10 purple-glow opacity-20 blur-3xl" />
                 <img
-                  src={coupleEvent}
+                  src={coupleEvent.src}
                   alt="A black couple hugging and laughing together at an elegant event"
                   loading="lazy"
                   width={1024}
@@ -291,6 +293,4 @@ const Index = () => {
       </div>
     </main>
   );
-};
-
-export default Index;
+}

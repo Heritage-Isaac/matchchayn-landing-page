@@ -1,8 +1,9 @@
+"use client";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
-import { useWaitlist } from "@/components/WaitlistModal";
+import { useWaitlist } from "@/components/features/WaitlistModal";
 import { motion } from "framer-motion";
 
 const navLinks = [
@@ -47,7 +48,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-[100px]">
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
-          <img src={logo} alt="MatchChayn" className="h-8 w-8" />
+          <img src={logo.src} alt="MatchChayn" className="h-8 w-8" />
           <span className="font-hero text-xl text-foreground tracking-tight">MatchChayn</span>
         </button>
 
@@ -67,7 +68,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="pill" size="sm" onClick={openWaitlist}>
+          <Button variant="pill" size="sm" className="text-xs" onClick={openWaitlist}>
             Join waitlist
           </Button>
         </div>
@@ -95,7 +96,7 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <Button variant="pill" size="sm" className="w-full mt-4" onClick={() => { setMobileOpen(false); openWaitlist(); }}>
+          <Button variant="pill" size="sm" className="w-full mt-4 text-xs" onClick={() => { setMobileOpen(false); openWaitlist(); }}>
             Join waitlist
           </Button>
         </div>

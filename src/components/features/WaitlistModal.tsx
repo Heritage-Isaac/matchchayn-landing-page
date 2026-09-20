@@ -2,7 +2,7 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
+
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -48,9 +48,18 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return setError("Please enter a valid email address.");
 
     setLoading(true);
-    const { data, error: fnError } = await supabase.functions.invoke("waitlist-signup", {
-      body: { name, gender, email },
-    });
+    let data, fnError;
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, gender, email }),
+      });
+      data = await res.json();
+      if (!res.ok) fnError = new Error(data?.error || "Failed to submit");
+    } catch (e: any) {
+      fnError = e;
+    }
     setLoading(false);
 
     if (fnError || (data && (data as { error?: string }).error)) {
