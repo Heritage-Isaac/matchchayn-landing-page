@@ -110,10 +110,19 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
               className="py-8 text-center space-y-4"
             >
               <CheckCircle2 className="mx-auto text-accent" size={44} />
-              <h3 className="font-hero text-3xl">You've been added to the wait list.</h3>
+              <h3 className="font-hero text-3xl">You've been added to the waitlist.</h3>
               <p className="text-muted-foreground text-sm leading-relaxed space-y-1">
-                <span className="block">You'll be the first to know when MatchChayn relaunches.</span>
                 <span className="block">
+                  You'll be the first to know when{" "}
+                  <span className="relative inline-block font-medium text-foreground">
+                    MatchChayn
+                    <svg className="absolute -bottom-1.5 left-0 w-full h-2 text-primary" viewBox="0 0 100 10" preserveAspectRatio="none">
+                      <path d="M0 5 Q 25 12 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                    </svg>
+                  </span>{" "}
+                  relaunches.
+                </span>
+                <span className="block mt-1">
                   Thank you {name.trim().split(" ")[0]} for constantly supporting{" "}
                   <span className="relative inline-block font-medium text-foreground">
                     MatchChayn
