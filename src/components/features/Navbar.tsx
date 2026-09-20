@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import { useWaitlist } from "@/components/features/WaitlistModal";
 import { motion } from "framer-motion";
 
@@ -47,9 +47,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-[100px]">
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
-          <img src={logo.src} alt="MatchChayn" className="h-8 w-8" />
-          <span className="font-hero text-xl text-foreground tracking-tight">MatchChayn</span>
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center">
+          <img src={logo.src} alt="MatchChayn" className="h-10 w-auto" />
         </button>
 
         {/* Desktop nav */}

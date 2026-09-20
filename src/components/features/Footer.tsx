@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Instagram, Linkedin, Send, Youtube, Facebook, Music2 } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 
 const XIcon = ({ size = 16 }: { size?: number }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
@@ -35,9 +35,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <img src={logo.src} alt="MatchChayn" className="h-8 w-8" />
-              <span className="font-hero text-xl text-foreground">MatchChayn</span>
+            <div className="flex items-center">
+              <img src={logo.src} alt="MatchChayn" className="h-10 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Where professionals find love. Intentional matching, curated networking, and events that bring people together.
@@ -80,9 +79,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 h-10 rounded-full bg-muted border border-border px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary"
+                className="flex-1 h-10 min-w-0 rounded-full bg-muted border border-border px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary"
               />
-              <Button variant="pill" size="sm">Join</Button>
+              <Button variant="pill" size="sm" className="px-6 shrink-0">Join</Button>
             </div>
           </div>
         </div>

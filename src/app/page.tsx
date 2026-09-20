@@ -8,7 +8,7 @@ import videoSwipe from "@/assets/matchchayn-video-swipe.png";
 import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import {
   Briefcase,
   Users,
@@ -105,7 +105,7 @@ export default function Index() {
             </motion.div>
 
             <motion.div className="relative flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="relative w-full max-w-[480px]">
+              <div className="relative w-full max-w-[420px]">
 
                 <img
                   src={videoSwipe.src}
@@ -122,9 +122,8 @@ export default function Index() {
       <div className="py-6 overflow-hidden border-y border-border/60">
         <div className="animate-marquee flex gap-14 whitespace-nowrap">
           {Array.from({ length: 24 }).map((_, i) => (
-            <div key={i} className="flex items-center gap-3 opacity-30 shrink-0">
-              <img src={logo.src} alt="" className="h-6 w-6" />
-              <span className="font-hero text-lg tracking-tight text-muted-foreground">MatchChayn</span>
+            <div key={i} className="flex items-center justify-center opacity-60 shrink-0">
+              <img src={logo.src} alt="MatchChayn" className="h-9 w-auto" />
             </div>
           ))}
         </div>
