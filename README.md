@@ -1,26 +1,22 @@
-# Matchchayn DateFi
+# MatchChayn
 
-## Project Info
-
-A web application built with modern front-end technologies.
+MatchChayn is a modern dating and networking platform exclusively built for professionals. This repository contains the Next.js App Router landing page.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js & npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js (v18+)
 
 ### Installation
 
-```sh
-# Clone the repository
-git clone <YOUR_GIT_URL>
-
-# Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
-
+```bash
 # Install dependencies
-npm i
+npm install
+
+# Setup environment variables
+cp .env.example .env.local
+# Add your Google Sheets Webhook URL to .env.local
 
 # Start the development server
 npm run dev
@@ -28,8 +24,8 @@ npm run dev
 
 ## Tech Stack
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS & shadcn/ui
+- **Animations**: Framer Motion
+- **Integration**: Google Apps Script Webhook (Waitlist)

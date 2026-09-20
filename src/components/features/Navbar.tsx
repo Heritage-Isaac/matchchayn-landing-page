@@ -48,7 +48,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-[100px]">
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center">
-          <img src={logo.src} alt="MatchChayn" className="h-11 w-auto" />
+          <img src={logo.src} alt="MatchChayn" className="h-12 w-auto" />
         </button>
 
         {/* Desktop nav */}
