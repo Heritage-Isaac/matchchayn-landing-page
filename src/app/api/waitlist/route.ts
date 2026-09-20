@@ -51,21 +51,27 @@ export async function POST(request: Request) {
     }
 
     // 3. Secrets & Environment (Use server-side env var)
-    if (env.GOOGLE_SHEETS_WEBHOOK_URL) {
-      const response = await fetch(env.GOOGLE_SHEETS_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          gender,
-          timestamp: new Date().toISOString(),
-        }),
-      });
+    if (!env.GOOGLE_SHEETS_WEBHOOK_URL) {
+      console.error("[Waitlist API Error]: GOOGLE_SHEETS_WEBHOOK_URL is not set in environment variables.");
+      return NextResponse.json(
+        { error: "Webhook is not configured." },
+        { status: 500 },
+      );
+    }
 
-      if (!response.ok) {
-        throw new Error(`Google Sheets Webhook failed: ${response.status}`);
-      }
+    const response = await fetch(env.GOOGLE_SHEETS_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        gender,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Google Sheets Webhook failed: ${response.status}`);
     }
 
     return NextResponse.json({ success: true });
