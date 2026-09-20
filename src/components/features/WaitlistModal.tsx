@@ -48,25 +48,31 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return setError("Please enter a valid email address.");
 
     setLoading(true);
-    let data, fnError;
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, gender, email }),
+        body: JSON.stringify({ name: name.trim(), gender, email: email.trim() }),
       });
-      data = await res.json();
-      if (!res.ok) fnError = new Error(data?.error || "Failed to submit");
-    } catch (e: any) {
-      fnError = e;
-    }
-    setLoading(false);
 
-    if (fnError || (data && (data as { error?: string }).error)) {
-      setError((data as { error?: string })?.error ?? "Something went wrong. Please try again.");
-      return;
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseError) {
+        throw new Error("Invalid response from server. Please try again.");
+      }
+
+      if (!res.ok) {
+        throw new Error(data?.error || "Failed to join waitlist.");
+      }
+
+      setDone(true);
+    } catch (e: any) {
+      console.error("Waitlist submit error:", e);
+      setError(e.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
-    setDone(true);
   };
 
   const inputClass =
@@ -75,7 +81,7 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
   return (
     <Ctx.Provider value={{ open }}>
       {children}
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <Dialog open={isOpen} onOpenChange={(val) => !loading && setIsOpen(val)}>
         <DialogContent className="sm:max-w-md" onOpenAutoFocus={(event) => event.preventDefault()}>
           {done ? (
             <motion.div
