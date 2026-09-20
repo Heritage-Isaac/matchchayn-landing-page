@@ -110,10 +110,10 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
               className="py-8 text-center space-y-4"
             >
               <CheckCircle2 className="mx-auto text-accent" size={44} />
-              <h3 className="font-hero text-3xl">You're on the list.</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Thanks {name.trim().split(" ")[0]} — we'll email you at{" "}
-                {email.trim()} the moment MatchChayn opens up.
+              <h3 className="font-hero text-3xl">You've been added to the list.</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed space-y-1">
+                <span className="block">You'll be the first to know when MatchChayn relaunches.</span>
+                <span className="block">Thank you {name.trim().split(" ")[0]} for constantly supporting MatchChayn.</span>
               </p>
               <Button variant="pill" size="sm" onClick={() => setIsOpen(false)}>
                 Done
