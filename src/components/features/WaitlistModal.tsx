@@ -117,19 +117,13 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
                   <span className="relative inline-block font-medium text-foreground">
                     MatchChayn
                     <svg className="absolute -bottom-1.5 left-0 w-full h-2 text-primary" viewBox="0 0 100 10" preserveAspectRatio="none">
-                      <path d="M0 5 Q 25 12 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                      <path d="M0 5 Q 25 12 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
                   </span>{" "}
                   relaunches.
                 </span>
                 <span className="block mt-1">
-                  Thank you {name.trim().split(" ")[0]} for constantly supporting{" "}
-                  <span className="relative inline-block font-medium text-foreground">
-                    MatchChayn
-                    <svg className="absolute -bottom-1.5 left-0 w-full h-2 text-primary" viewBox="0 0 100 10" preserveAspectRatio="none">
-                      <path d="M0 5 Q 25 12 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                    </svg>
-                  </span>.
+                  Thank you {name.trim().split(" ")[0]} for constantly supporting MatchChayn.
                 </span>
               </p>
             </motion.div>
