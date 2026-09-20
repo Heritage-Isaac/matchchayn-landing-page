@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img src={logo.src} alt="MatchChayn" className="h-10 w-auto" />
+              <img src={logo.src} alt="MatchChayn" className="h-11 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Where professionals find love. Intentional matching, curated networking, and events that bring people together.

@@ -123,7 +123,7 @@ export default function Index() {
         <div className="animate-marquee flex gap-14 whitespace-nowrap">
           {Array.from({ length: 24 }).map((_, i) => (
             <div key={i} className="flex items-center justify-center opacity-60 shrink-0">
-              <img src={logo.src} alt="MatchChayn" className="h-9 w-auto" />
+              <img src={logo.src} alt="MatchChayn" className="h-10 w-auto" />
             </div>
           ))}
         </div>
