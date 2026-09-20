@@ -22,7 +22,7 @@ const NavLink = ({ to, children, className, onClick }: NavLinkProps) => {
       className={cn(
         "relative text-sm font-medium transition-colors hover:text-accent",
         isActive ? "text-accent" : "text-muted-foreground",
-        className
+        className,
       )}
     >
       {children}

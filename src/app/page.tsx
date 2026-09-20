@@ -66,7 +66,12 @@ const reasons = [
   },
 ];
 
-const pillars = ["Intentional People", "Meaningful Connections", "Professional Networking", "Curated Events"];
+const pillars = [
+  "Intentional People",
+  "Meaningful Connections",
+  "Professional Networking",
+  "Curated Events",
+];
 
 export default function Index() {
   const { open: openWaitlist } = useWaitlist();
@@ -78,7 +83,12 @@ export default function Index() {
         <div className="absolute inset-0 hairline-grid opacity-[0.35]" />
         <div className="relative container mx-auto px-6 lg:px-[100px]">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
-            <motion.div className="space-y-8" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
               <span className="eyebrow">MatchChayn</span>
               <h1 className="font-hero text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
                 Where Professionals
@@ -86,8 +96,9 @@ export default function Index() {
                 <span className="italic text-accent">Find Love.</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-                Find the right person through intentional matching, curated networking, and a platform designed to make
-                discovering the right people easier.
+                Find the right person through intentional matching, curated
+                networking, and a platform designed to make discovering the
+                right people easier.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Button variant="pill" size="lg" onClick={openWaitlist}>
@@ -96,17 +107,30 @@ export default function Index() {
                 <DownloadAppButton />
               </div>
               <div className="flex flex-wrap gap-x-5 sm:gap-x-8 gap-y-3 pt-4 border-t border-border/60">
-                {["Intentional matching", "Curated events", "Private Mode"].map((s) => (
-                  <span key={s} className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
-                    {s}
-                  </span>
-                ))}
+                {["Intentional matching", "Curated events", "Private Mode"].map(
+                  (s) => (
+                    <span
+                      key={s}
+                      className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap"
+                    >
+                      {s}
+                    </span>
+                  ),
+                )}
               </div>
             </motion.div>
 
-            <motion.div className="relative flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div
+              className="relative flex justify-center lg:justify-end"
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               <div className="relative w-full max-w-[420px]">
-
                 <img
                   src={videoSwipe.src}
                   alt="MatchChayn video swipe profile for Tiana"
@@ -122,7 +146,10 @@ export default function Index() {
       <div className="py-6 overflow-hidden border-y border-border/60">
         <div className="animate-marquee flex gap-14 whitespace-nowrap">
           {Array.from({ length: 24 }).map((_, i) => (
-            <div key={i} className="flex items-center justify-center opacity-60 shrink-0">
+            <div
+              key={i}
+              className="flex items-center justify-center opacity-60 shrink-0"
+            >
               <img src={logo.src} alt="MatchChayn" className="h-11 w-auto" />
             </div>
           ))}
@@ -160,9 +187,10 @@ export default function Index() {
                     with no clear direction.
                   </p>
                   <p>
-                    MatchChayn makes discovery easier by helping you connect with{" "}
-                    <br className="hidden md:block" />
-                    professionals based on profession, personality, interest, location and values that matter to you.
+                    MatchChayn makes discovery easier by helping you connect
+                    with <br className="hidden md:block" />
+                    professionals based on profession, personality, interest,
+                    location and values that matter to you.
                   </p>
                 </div>
               </div>
@@ -196,23 +224,39 @@ export default function Index() {
         </div>
       </section>
 
-
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-24 border-t border-border/60 scroll-mt-24">
+      <section
+        id="how-it-works"
+        className="py-24 border-t border-border/60 scroll-mt-24"
+      >
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <span className="eyebrow">How MatchChayn works</span>
-            <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-14 tracking-[-0.02em]">Three steps to the right person.</h2>
+            <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-14 tracking-[-0.02em]">
+              Three steps to the right person.
+            </h2>
           </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-px bg-border/60 rounded-2xl overflow-hidden">
             {steps.map((s) => (
-              <div key={s.n} className="bg-card p-8 lg:p-10 group transition-colors hover:bg-surface">
+              <div
+                key={s.n}
+                className="bg-card p-8 lg:p-10 group transition-colors hover:bg-surface"
+              >
                 <div className="flex items-center justify-between mb-8">
-                  <span className="font-hero text-3xl text-accent/70">{s.n}</span>
-                  <s.icon className="text-muted-foreground group-hover:text-accent transition-colors" size={22} />
+                  <span className="font-hero text-3xl text-accent/70">
+                    {s.n}
+                  </span>
+                  <s.icon
+                    className="text-muted-foreground group-hover:text-accent transition-colors"
+                    size={22}
+                  />
                 </div>
-                <h3 className="font-hero text-2xl mb-3 leading-snug">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+                <h3 className="font-hero text-2xl mb-3 leading-snug">
+                  {s.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -224,7 +268,9 @@ export default function Index() {
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="max-w-2xl mb-14">
-              <span className="eyebrow">Why professionals choose MatchChayn</span>
+              <span className="eyebrow">
+                Why professionals choose MatchChayn
+              </span>
               <h2 className="font-hero text-4xl md:text-5xl mt-4 tracking-[-0.02em]">
                 Built for people with intent.
               </h2>
@@ -236,7 +282,9 @@ export default function Index() {
                 <div className="soft-card h-full">
                   <r.icon className="text-accent mb-6" size={26} />
                   <h3 className="font-hero text-2xl mb-3">{r.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{r.desc}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {r.desc}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -245,7 +293,10 @@ export default function Index() {
       </section>
 
       {/* MORE THAN DATING */}
-      <section id="more-than-dating" className="py-24 border-t border-border/60 scroll-mt-24">
+      <section
+        id="more-than-dating"
+        className="py-24 border-t border-border/60 scroll-mt-24"
+      >
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -256,14 +307,20 @@ export default function Index() {
                 </h2>
                 <ul className="divide-y divide-border/60 border-y border-border/60">
                   {pillars.map((p) => (
-                    <li key={p} className="flex items-center justify-between py-5 group">
-                      <span className="font-hero text-2xl md:text-3xl">{p}</span>
+                    <li
+                      key={p}
+                      className="flex items-center justify-between py-5 group"
+                    >
+                      <span className="font-hero text-2xl md:text-3xl">
+                        {p}
+                      </span>
                       <span className="h-1.5 w-1.5 rounded-full bg-accent opacity-60 group-hover:opacity-100 transition-opacity" />
                     </li>
                   ))}
                 </ul>
                 <p className="mt-8 text-lg text-muted-foreground italic">
-                  Where intentional people connect, meaningful relationships begin.
+                  Where intentional people connect, meaningful relationships
+                  begin.
                 </p>
               </div>
               <div className="relative">
@@ -277,7 +334,6 @@ export default function Index() {
                   className="relative w-full rounded-2xl border border-border object-cover aspect-[4/3]"
                 />
               </div>
-
             </div>
           </ScrollReveal>
         </div>

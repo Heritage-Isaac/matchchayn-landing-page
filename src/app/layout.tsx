@@ -9,12 +9,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MatchChayn — Where Professionals Find Love",
-  description: "MatchChayn is a dating platform for professionals: intentional matching, professional networking, curated events, and Private Mode browsing.",
-  keywords: ["Dating", "Professionals", "Matchmaking", "Networking", "Events", "MatchChayn"],
+  description:
+    "MatchChayn is a dating platform for professionals: intentional matching, professional networking, curated events, and Private Mode browsing.",
+  keywords: [
+    "Dating",
+    "Professionals",
+    "Matchmaking",
+    "Networking",
+    "Events",
+    "MatchChayn",
+  ],
   authors: [{ name: "MatchChayn" }],
   openGraph: {
     title: "MatchChayn — Where Professionals Find Love",
-    description: "Intentional matching, professional networking, and curated events for professionals.",
+    description:
+      "Intentional matching, professional networking, and curated events for professionals.",
     type: "website",
     siteName: "MatchChayn",
   },
@@ -25,7 +34,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   verification: {
     google: "google-site-verification-code", // Replace with real Google verification code if you have one
-  }
+  },
 };
 
 export default function RootLayout({

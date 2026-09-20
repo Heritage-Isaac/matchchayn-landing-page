@@ -1,25 +1,55 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Instagram, Linkedin, Send, Youtube, Facebook, Music2 } from "lucide-react";
+import {
+  Instagram,
+  Linkedin,
+  Send,
+  Youtube,
+  Facebook,
+  Music2,
+} from "lucide-react";
 import logo from "@/assets/logo.svg";
 
 const XIcon = ({ size = 16 }: { size?: number }) => (
-  <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M18.9 2H22l-6.8 7.8L23.3 22h-6.6l-5.2-6.8L5.5 22H2.4l7.3-8.3L1.2 2h6.7l4.8 6.4L18.9 2zm-1.1 18h1.8L6.4 3.8H4.5L17.8 20z" />
   </svg>
 );
 
 const socials = [
   { label: "X", Icon: XIcon, href: "https://x.com/MatchChayn" },
-  { label: "Instagram", Icon: Instagram, href: "https://www.instagram.com/matchchayn/" },
-  { label: "LinkedIn", Icon: Linkedin, href: "https://www.linkedin.com/company/matchchayn" },
+  {
+    label: "Instagram",
+    Icon: Instagram,
+    href: "https://www.instagram.com/matchchayn/",
+  },
+  {
+    label: "LinkedIn",
+    Icon: Linkedin,
+    href: "https://www.linkedin.com/company/matchchayn",
+  },
   { label: "Telegram", Icon: Send, href: "https://t.me/matchchayn" },
   { label: "TikTok", Icon: Music2, href: "https://tiktok.com/@matchchayn" },
-  { label: "YouTube", Icon: Youtube, href: "https://www.youtube.com/@MatchChayn" },
-  { label: "Facebook", Icon: Facebook, href: "https://www.facebook.com/share/1Ae6wtP7em" },
+  {
+    label: "YouTube",
+    Icon: Youtube,
+    href: "https://www.youtube.com/@MatchChayn",
+  },
+  {
+    label: "Facebook",
+    Icon: Facebook,
+    href: "https://www.facebook.com/share/1Ae6wtP7em",
+  },
 ];
 
-const scrollToId = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+const scrollToId = (id: string) =>
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 const sectionLinks = [
   { label: "How it works", id: "how-it-works" },
@@ -39,7 +69,8 @@ const Footer = () => {
               <img src={logo.src} alt="MatchChayn" className="h-12 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Where professionals find love. Intentional matching, curated networking, and events that bring people together.
+              Where professionals find love. Intentional matching, curated
+              networking, and events that bring people together.
             </p>
             <div className="flex flex-wrap gap-3">
               {socials.map(({ label, Icon, href }) => (
@@ -59,7 +90,9 @@ const Footer = () => {
 
           {/* Explore */}
           <div className="space-y-3">
-            <h4 className="font-heading font-semibold text-sm text-foreground">Explore</h4>
+            <h4 className="font-heading font-semibold text-sm text-foreground">
+              Explore
+            </h4>
             {sectionLinks.map((item) => (
               <button
                 key={item.id}
@@ -73,22 +106,30 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="space-y-3">
-            <h4 className="font-heading font-semibold text-sm text-foreground">Stay in the loop</h4>
-            <p className="text-sm text-muted-foreground">Get updates on features, launches, and curated events.</p>
+            <h4 className="font-heading font-semibold text-sm text-foreground">
+              Stay in the loop
+            </h4>
+            <p className="text-sm text-muted-foreground">
+              Get updates on features, launches, and curated events.
+            </p>
             <div className="flex gap-2">
               <input
                 type="email"
                 placeholder="your@email.com"
                 className="flex-1 h-10 min-w-0 rounded-full bg-muted border border-border px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary"
               />
-              <Button variant="pill" size="sm" className="px-6 shrink-0">Join</Button>
+              <Button variant="pill" size="sm" className="px-6 shrink-0">
+                Join
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">© 2026 MatchChayn. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">
+            © 2026 MatchChayn. All rights reserved.
+          </p>
           <p className="text-xs text-muted-foreground">
             Built by{" "}
             <a
@@ -101,8 +142,18 @@ const Footer = () => {
             </a>
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a>
+            <a
+              href="#"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>

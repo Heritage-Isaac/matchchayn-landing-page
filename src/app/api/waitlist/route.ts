@@ -11,12 +11,15 @@ export async function POST(request: Request) {
     // 1. Rate Limiting (Abuse Prevention)
     const ip = request.headers.get("x-forwarded-for") || "unknown";
     const now = Date.now();
-    
+
     if (ip !== "unknown") {
       const userLimit = rateLimit.get(ip);
       if (userLimit && now - userLimit.timestamp < RATE_LIMIT_WINDOW) {
         if (userLimit.count >= MAX_REQUESTS) {
-          return NextResponse.json({ error: "Too many requests, try again later." }, { status: 429 });
+          return NextResponse.json(
+            { error: "Too many requests, try again later." },
+            { status: 429 },
+          );
         }
         userLimit.count++;
       } else {
@@ -25,20 +28,26 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    
+
     // 2. Data Privacy & Sanitization (Only accept required data, trimmed)
     const name = body.name?.trim();
     const email = body.email?.trim().toLowerCase();
     const gender = body.gender?.trim();
 
     if (!name || !email || !gender) {
-      return NextResponse.json({ error: "All fields are required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "All fields are required" },
+        { status: 400 },
+      );
     }
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid email format" },
+        { status: 400 },
+      );
     }
 
     // 3. Secrets & Environment (Use server-side env var)
@@ -46,7 +55,12 @@ export async function POST(request: Request) {
       const response = await fetch(env.GOOGLE_SHEETS_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, gender, timestamp: new Date().toISOString() }),
+        body: JSON.stringify({
+          name,
+          email,
+          gender,
+          timestamp: new Date().toISOString(),
+        }),
       });
 
       if (!response.ok) {
@@ -58,7 +72,9 @@ export async function POST(request: Request) {
   } catch (error) {
     // 4. Fault Isolation (Log full error internally, return safe generic message to client)
     console.error("[Waitlist API Error]:", error);
-    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 500 },
+    );
   }
 }
-

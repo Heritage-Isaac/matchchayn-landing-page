@@ -1,7 +1,19 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -45,14 +57,19 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
 
     if (name.trim().length < 2) return setError("Please enter your full name.");
     if (!gender) return setError("Please select a gender.");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return setError("Please enter a valid email address.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))
+      return setError("Please enter a valid email address.");
 
     setLoading(true);
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), gender, email: email.trim() }),
+        body: JSON.stringify({
+          name: name.trim(),
+          gender,
+          email: email.trim(),
+        }),
       });
 
       let data;
@@ -82,7 +99,10 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
     <Ctx.Provider value={{ open }}>
       {children}
       <Dialog open={isOpen} onOpenChange={(val) => !loading && setIsOpen(val)}>
-        <DialogContent className="sm:max-w-md" onOpenAutoFocus={(event) => event.preventDefault()}>
+        <DialogContent
+          className="sm:max-w-md"
+          onOpenAutoFocus={(event) => event.preventDefault()}
+        >
           {done ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -92,7 +112,8 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
               <CheckCircle2 className="mx-auto text-accent" size={44} />
               <h3 className="font-hero text-3xl">You're on the list.</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Thanks {name.trim().split(" ")[0]} — we'll email you at {email.trim()} the moment MatchChayn opens up.
+                Thanks {name.trim().split(" ")[0]} — we'll email you at{" "}
+                {email.trim()} the moment MatchChayn opens up.
               </p>
               <Button variant="pill" size="sm" onClick={() => setIsOpen(false)}>
                 Done
@@ -101,7 +122,9 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
           ) : (
             <>
               <DialogHeader>
-                <DialogTitle className="font-hero text-3xl tracking-[-0.02em]">Join the waitlist</DialogTitle>
+                <DialogTitle className="font-hero text-3xl tracking-[-0.02em]">
+                  Join the waitlist
+                </DialogTitle>
                 <DialogDescription>
                   Be among the first professionals to experience MatchChayn.
                 </DialogDescription>
@@ -134,10 +157,21 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
                     ))}
                   </SelectContent>
                 </Select>
-                {error && <p className="text-sm text-destructive px-1">{error}</p>}
+                {error && (
+                  <p className="text-sm text-destructive px-1">{error}</p>
+                )}
                 <div className="flex gap-3 pt-2">
-                  <Button type="submit" variant="pill" className="flex-1" disabled={loading}>
-                    {loading ? <Loader2 className="animate-spin" size={16} /> : "Join waitlist"}
+                  <Button
+                    type="submit"
+                    variant="pill"
+                    className="flex-1"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <Loader2 className="animate-spin" size={16} />
+                    ) : (
+                      "Join waitlist"
+                    )}
                   </Button>
                   <Button
                     type="button"
