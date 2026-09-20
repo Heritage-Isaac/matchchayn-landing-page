@@ -8,6 +8,7 @@ import {
   Facebook,
   Music2,
 } from "lucide-react";
+import { useState } from "react";
 import logo from "@/assets/logo.svg";
 
 const XIcon = ({ size = 16 }: { size?: number }) => (
@@ -59,6 +60,49 @@ const sectionLinks = [
 ];
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseError) {
+        throw new Error("Invalid server response");
+      }
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to subscribe");
+      }
+
+      setStatus("success");
+      setEmail("");
+      
+      // Reset success state after 3 seconds so they can see the form again
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3000);
+    } catch (err: any) {
+      console.error(err);
+      setStatus("error");
+      setErrorMessage(err.message || "Something went wrong");
+    }
+  };
+
   return (
     <footer className="border-t border-border bg-background relative">
       <div className="container mx-auto px-6 lg:px-[100px] py-16">
@@ -112,16 +156,32 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               Get updates on features, launches, and curated events.
             </p>
-            <div className="flex gap-2">
+            <form onSubmit={handleSubscribe} className="flex gap-2 relative">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 h-10 min-w-0 rounded-full bg-muted border border-border px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === "loading" || status === "success"}
+                required
+                className="flex-1 h-10 min-w-0 rounded-full bg-muted border border-border px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:opacity-50"
               />
-              <Button variant="pill" size="sm" className="px-6 shrink-0">
-                Join
+              <Button
+                variant="pill"
+                size="sm"
+                type="submit"
+                disabled={status === "loading" || status === "success"}
+                className="px-6 shrink-0"
+              >
+                {status === "loading" ? "..." : status === "success" ? "Done!" : "Join"}
               </Button>
-            </div>
+            </form>
+            {status === "error" && (
+              <p className="text-xs text-destructive mt-1">{errorMessage}</p>
+            )}
+            {status === "success" && (
+              <p className="text-xs text-primary mt-1">You've been added to the newsletter.</p>
+            )}
           </div>
         </div>
 

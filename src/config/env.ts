@@ -6,6 +6,7 @@ const envSchema = z.object({
     .enum(["development", "production", "test"])
     .default("development"),
   GOOGLE_SHEETS_WEBHOOK_URL: z.string().url().optional(),
+  GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL: z.string().url().optional(),
 });
 
 const parseEnv = () => {
@@ -13,6 +14,7 @@ const parseEnv = () => {
     return envSchema.parse({
       NODE_ENV: process.env.NODE_ENV,
       GOOGLE_SHEETS_WEBHOOK_URL: process.env.GOOGLE_SHEETS_WEBHOOK_URL,
+      GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL: process.env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL,
     });
   } catch (error) {
     console.error("Invalid environment variables:", error);
