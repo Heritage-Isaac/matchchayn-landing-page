@@ -4,17 +4,24 @@ import DownloadAppButton from "@/components/features/DownloadAppButton";
 import { ArrowUpRight } from "lucide-react";
 import { useWaitlist } from "@/components/features/WaitlistModal";
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface CTABannerProps {
   eyebrow?: string;
   headline?: string;
-  sub?: string;
+  sub?: ReactNode;
 }
 
 const CTABanner = ({
   eyebrow = "Join the waitlist",
   headline = "Ready to meet someone who matches your world?",
-  sub = "Join the MatchChayn waitlist and be among the first to experience a new way to connect, network, and build meaningful relationships.",
+  sub = (
+    <>
+      Join the MatchChayn waitlist and be among the first to experience{" "}
+      <br className="hidden md:block" />a new way to connect, network, and build
+      meaningful relationships.
+    </>
+  ),
 }: CTABannerProps) => {
   const { open: openWaitlist } = useWaitlist();
   return (

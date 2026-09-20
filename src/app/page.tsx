@@ -343,7 +343,13 @@ export default function Index() {
         <CTABanner
           eyebrow="Join the waitlist"
           headline="Ready to meet someone who matches your world?"
-          sub="Join the MatchChayn waitlist and be among the first to experience a new way to connect, network, and build meaningful relationships."
+          sub={
+            <>
+              Join the MatchChayn waitlist and be among the first to experience{" "}
+              <br className="hidden md:block" />a new way to connect, network,
+              and build meaningful relationships.
+            </>
+          }
         />
       </div>
     </main>
