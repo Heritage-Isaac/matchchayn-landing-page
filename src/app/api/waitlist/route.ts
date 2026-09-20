@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     if (!env.GOOGLE_SHEETS_WEBHOOK_URL) {
       console.error("[Waitlist API Error]: GOOGLE_SHEETS_WEBHOOK_URL is not set in environment variables.");
       return NextResponse.json(
-        { error: "Webhook is not configured." },
+        { error: "Something went wrong. Please try again." },
         { status: 500 },
       );
     }
