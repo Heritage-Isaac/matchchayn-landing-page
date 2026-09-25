@@ -81,12 +81,12 @@ export default function NewsletterEmail() {
             </Section>
 
             {/* Hero Image */}
-            <Section className="w-full bg-[#09090b] pt-2 pb-6 flex justify-center text-center border-b border-solid border-[#27272a]">
+            <Section className="w-full bg-[#09090b] pt-2 pb-0 flex justify-center text-center border-b border-solid border-[#27272a]">
               <Img
                 src={`${baseUrl}/static/couple-intro.png`}
                 width="280"
                 alt="Happy Couple"
-                className="mx-auto block rounded-lg object-contain"
+                className="mx-auto block rounded-t-lg object-contain"
               />
             </Section>
 
