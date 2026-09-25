@@ -75,7 +75,7 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
         <Body className="bg-[#09090b] font-sans m-0 px-2 py-4">
           <Container className="bg-[#18181b] mx-auto rounded-2xl shadow-lg overflow-hidden max-w-[600px] border border-solid border-[#27272a]">
             {/* Header */}
-            <Section className="px-10 pt-6 pb-2 text-center bg-[#18181b]">
+            <Section className="px-6 sm:px-10 pt-6 pb-2 text-center bg-[#18181b]">
               <Img
                 src={`${baseUrl}/static/logo-purple.png`}
                 width="180"
@@ -95,8 +95,8 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
             </Section>
 
             {/* Main Content */}
-            <Section className="px-10 py-10">
-              <Heading className="text-[#7c3aed] text-3xl font-serif p-0 m-0 mb-6 leading-tight">
+            <Section className="px-6 sm:px-10 py-10">
+              <Heading className="text-[#7c3aed] text-2xl sm:text-3xl font-serif p-0 m-0 mb-6 leading-tight">
                 Welcome to MatchChayn, {firstName}! 💜
               </Heading>
               <Text className="text-white text-base leading-7 m-0 mb-4">
@@ -117,7 +117,7 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
             <Hr className="border-[#27272a] m-0" />
 
             {/* Footer */}
-            <Section className="px-10 py-8 bg-[#09090b] text-center">
+            <Section className="px-6 sm:px-10 py-8 bg-[#09090b] text-center">
               <Text className="text-[#a1a1aa] text-sm m-0 mb-5">
                 Follow us on our socials to stay updated!
               </Text>
