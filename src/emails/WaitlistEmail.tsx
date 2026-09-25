@@ -75,7 +75,7 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
         <Body className="bg-[#09090b] font-sans m-0 px-2 py-4">
           <Container className="bg-[#18181b] mx-auto rounded-2xl shadow-lg overflow-hidden max-w-[600px] border border-solid border-[#27272a]">
             {/* Header */}
-            <Section className="px-10 pt-6 pb-0 text-center bg-[#18181b]">
+            <Section className="px-10 pt-6 pb-2 text-center bg-[#18181b]">
               <Img
                 src={`${baseUrl}/static/logo-purple.png`}
                 width="180"
@@ -85,7 +85,7 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
             </Section>
 
             {/* Hero Image */}
-            <Section className="w-full bg-[#09090b] pt-0 pb-6 flex justify-center text-center border-b border-solid border-[#27272a]">
+            <Section className="w-full bg-[#09090b] pt-2 pb-6 flex justify-center text-center border-b border-solid border-[#27272a]">
               <Img
                 src={`${baseUrl}/static/couple-intro.png`}
                 width="280"
