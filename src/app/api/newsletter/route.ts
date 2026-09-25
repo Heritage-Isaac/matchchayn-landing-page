@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import { env } from "@/config/env";
+import { Resend } from "resend";
+import NewsletterEmail from "@/emails/NewsletterEmail";
+
+const resend = new Resend(env.RESEND_API_KEY || "dummy_key");
 
 // In-memory rate limiting (basic defense against burst spam)
 const rateLimit = new Map<string, { count: number; timestamp: number }>();
@@ -69,6 +73,16 @@ export async function POST(request: Request) {
 
     if (!response.ok) {
       throw new Error(`Google Sheets Webhook failed: ${response.status}`);
+    }
+
+    // Send email using Resend
+    if (env.RESEND_API_KEY) {
+      await resend.emails.send({
+        from: "MatchChayn <noreply@app.matchchayn.com>", // Update this to your verified domain
+        to: email,
+        subject: "Welcome to MatchChayn newsletter! 🎉",
+        react: NewsletterEmail(),
+      });
     }
 
     return NextResponse.json({ success: true });
