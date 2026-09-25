@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
-import { env } from "@/config/env";
-import { Resend } from "resend";
-import NewsletterEmail from "@/emails/NewsletterEmail";
-
-const resend = new Resend(env.RESEND_API_KEY || "dummy_key");
+import { processNewsletterSignup } from "@/services/newsletter.service";
 
 async function handler(request: Request) {
   try {
@@ -13,32 +9,13 @@ async function handler(request: Request) {
 
     console.log(`[QStash Worker] Processing newsletter for: ${email}`);
 
-    // 1. Send to Google Sheets
-    if (env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL) {
-      const response = await fetch(env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, timestamp }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Google Sheets Webhook failed: ${response.status}`);
-      }
-    }
-
-    // 2. Send email using Resend
-    if (env.RESEND_API_KEY) {
-      await resend.emails.send({
-        from: "MatchChayn <hello@app.matchchayn.com>",
-        to: email,
-        subject: "Welcome to MatchChayn newsletter! 🎉",
-        react: NewsletterEmail(),
-      });
-    }
+    // Call the dedicated service that handles Google Sheets and Resend
+    await processNewsletterSignup(email, timestamp);
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("[QStash Worker Error]:", error);
+    // Returning a 500 tells QStash that this task failed and needs to be retried
     return NextResponse.json({ error: "Failed to process task" }, { status: 500 });
   }
 }

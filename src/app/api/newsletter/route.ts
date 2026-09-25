@@ -1,106 +1,42 @@
 import { NextResponse, after } from "next/server";
-import { env } from "@/config/env";
-import { Resend } from "resend";
-import NewsletterEmail from "@/emails/NewsletterEmail";
-import { Client } from "@upstash/qstash";
-
-const resend = new Resend(env.RESEND_API_KEY || "dummy_key");
-
-// In-memory rate limiting (basic defense against burst spam)
-const rateLimit = new Map<string, { count: number; timestamp: number }>();
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const MAX_REQUESTS = 3;
+import { checkRateLimit } from "@/lib/rate-limit";
+import { publishToQueue } from "@/services/queue.service";
+import { processNewsletterSignup } from "@/services/newsletter.service";
 
 export async function POST(request: Request) {
   try {
-    // 1. Rate Limiting (Abuse Prevention)
+    // 1. Rate Limiting
     const ip = request.headers.get("x-forwarded-for") || "unknown";
-    const now = Date.now();
-
-    if (ip !== "unknown") {
-      const userLimit = rateLimit.get(ip);
-      if (userLimit && now - userLimit.timestamp < RATE_LIMIT_WINDOW) {
-        if (userLimit.count >= MAX_REQUESTS) {
-          return NextResponse.json(
-            { error: "Too many requests, try again later." },
-            { status: 429 },
-          );
-        }
-        userLimit.count++;
-      } else {
-        rateLimit.set(ip, { count: 1, timestamp: now });
-      }
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json({ error: "Too many requests, try again later." }, { status: 429 });
     }
 
+    // 2. Data Parsing
     const body = await request.json();
     const email = body.email?.trim().toLowerCase();
 
     if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    // 3. Secrets & Environment (Use server-side env var)
-    if (!env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL) {
-      console.error(
-        "[Newsletter API Error]: GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL is not set in environment variables.",
-      );
-      return NextResponse.json(
-        { error: "Something went wrong. Please try again." },
-        { status: 500 },
-      );
+    const timestamp = new Date().toISOString();
+
+    // 3. Queue / Background Processing
+    const queued = await publishToQueue("newsletter", { email, timestamp });
+    
+    if (queued) {
+      return NextResponse.json({ success: true });
     }
 
-    if (env.QSTASH_TOKEN) {
-      // 1. Upstash QStash (Enterprise Queue)
-      const isLocal = process.env.NODE_ENV === "development";
-      
-      if (!isLocal) {
-        const qstash = new Client({ token: env.QSTASH_TOKEN });
-        await qstash.publishJSON({
-          url: "https://matchchayn.com/api/workers/newsletter",
-          body: { email, timestamp: new Date().toISOString() },
-        });
-        return NextResponse.json({ success: true });
-      }
-    }
-
-    // 2. Fallback to Next.js after() for local dev or if QStash isn't configured
+    // 4. Fallback to Next.js after()
     after(async () => {
       try {
-        const response = await fetch(env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email,
-            timestamp: new Date().toISOString(),
-          }),
-        });
-
-        if (!response.ok) {
-          console.error(`Google Sheets Webhook failed: ${response.status}`);
-        }
-
-        // Send email using Resend
-        if (env.RESEND_API_KEY) {
-          await resend.emails.send({
-            from: "MatchChayn <hello@app.matchchayn.com>",
-            to: email,
-            subject: "Welcome to MatchChayn newsletter! 🎉",
-            react: NewsletterEmail(),
-          });
-        }
+        await processNewsletterSignup(email, timestamp);
       } catch (backgroundError) {
         console.error("[Newsletter Background Error]:", backgroundError);
       }
@@ -108,11 +44,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    // 4. Fault Isolation (Log full error internally, return safe generic message to client)
     console.error("[Newsletter API Error]:", error);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 }
