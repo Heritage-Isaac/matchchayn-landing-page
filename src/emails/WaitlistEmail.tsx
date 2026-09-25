@@ -97,7 +97,7 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
             {/* Main Content */}
             <Section className="px-10 py-10">
               <Heading className="text-[#7c3aed] text-3xl font-serif p-0 m-0 mb-6 leading-tight">
-                Welcome {firstName} to MatchChayn! 💜
+                Welcome to MatchChayn, {firstName}! 💜
               </Heading>
               <Text className="text-white text-base leading-7 m-0 mb-4">
                 You're officially on the waitlist! 🎉
