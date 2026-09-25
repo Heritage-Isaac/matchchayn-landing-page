@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     // Send email using Resend
     if (env.RESEND_API_KEY) {
       await resend.emails.send({
-        from: "MatchChayn <noreply@app.matchchayn.com>", // Update this to your verified domain
+        from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
         to: email,
         subject: "Welcome to MatchChayn newsletter! 🎉",
         react: NewsletterEmail(),

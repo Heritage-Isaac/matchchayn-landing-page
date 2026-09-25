@@ -80,11 +80,12 @@ export async function POST(request: Request) {
 
     // Send email using Resend
     if (env.RESEND_API_KEY) {
+      const firstNameOnly = name.split(" ")[0];
       await resend.emails.send({
-        from: "MatchChayn <noreply@app.matchchayn.com>", // Update this to your verified domain
+        from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
         to: email,
         subject: "Welcome to the MatchChayn waitlist! 🎉",
-        react: WaitlistEmail({ firstName: name }),
+        react: WaitlistEmail({ firstName: firstNameOnly }),
       });
     }
 

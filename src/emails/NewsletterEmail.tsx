@@ -17,7 +17,8 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-const baseUrl = process.env.NODE_ENV === "development" ? "" : "https://matchchayn.com"; // Change to your actual production domain
+// Reverting to root domain. The image mismatch warning is negligible.
+const baseUrl = process.env.NODE_ENV === "development" ? "" : "https://matchchayn.com";
 
 export default function NewsletterEmail() {
   return (
@@ -72,7 +73,7 @@ export default function NewsletterEmail() {
             {/* Header */}
             <Section className="px-10 pt-6 pb-2 text-center bg-[#18181b]">
               <Img
-                src={`${baseUrl}/static/logo-purple.svg`}
+                src={`${baseUrl}/static/logo-purple.png`}
                 width="180"
                 alt="MatchChayn Logo"
                 className="mx-auto block"
@@ -122,37 +123,37 @@ export default function NewsletterEmail() {
                 <Row>
                   <Column align="center" className="px-2">
                     <Link href="https://x.com/MatchChayn">
-                      <Img src="https://api.iconify.design/ri:twitter-x-fill.svg?color=%237c3aed" width="24" height="24" alt="X (Twitter)" />
+                      <Img src={`${baseUrl}/static/twitter.png`} width="24" height="24" alt="X (Twitter)" />
                     </Link>
                   </Column>
                   <Column align="center" className="px-2">
                     <Link href="https://www.instagram.com/matchchayn/">
-                      <Img src="https://api.iconify.design/mdi:instagram.svg?color=%237c3aed" width="24" height="24" alt="Instagram" />
+                      <Img src={`${baseUrl}/static/instagram.png`} width="24" height="24" alt="Instagram" />
                     </Link>
                   </Column>
                   <Column align="center" className="px-2">
                     <Link href="https://www.linkedin.com/company/matchchayn">
-                      <Img src="https://api.iconify.design/mdi:linkedin.svg?color=%237c3aed" width="24" height="24" alt="LinkedIn" />
+                      <Img src={`${baseUrl}/static/linkedin.png`} width="24" height="24" alt="LinkedIn" />
                     </Link>
                   </Column>
                   <Column align="center" className="px-2">
                     <Link href="https://t.me/matchchayn">
-                      <Img src="https://api.iconify.design/ic:baseline-telegram.svg?color=%237c3aed" width="24" height="24" alt="Telegram" />
+                      <Img src={`${baseUrl}/static/telegram.png`} width="24" height="24" alt="Telegram" />
                     </Link>
                   </Column>
                   <Column align="center" className="px-2">
                     <Link href="https://tiktok.com/@matchchayn">
-                      <Img src="https://api.iconify.design/ic:baseline-tiktok.svg?color=%237c3aed" width="24" height="24" alt="TikTok" />
+                      <Img src={`${baseUrl}/static/tiktok.png`} width="24" height="24" alt="TikTok" />
                     </Link>
                   </Column>
                   <Column align="center" className="px-2">
                     <Link href="https://www.youtube.com/@MatchChayn">
-                      <Img src="https://api.iconify.design/mdi:youtube.svg?color=%237c3aed" width="24" height="24" alt="YouTube" />
+                      <Img src={`${baseUrl}/static/youtube.png`} width="24" height="24" alt="YouTube" />
                     </Link>
                   </Column>
                   <Column align="center" className="px-2">
                     <Link href="https://www.facebook.com/share/1Ae6wtP7em">
-                      <Img src="https://api.iconify.design/mdi:facebook.svg?color=%237c3aed" width="24" height="24" alt="Facebook" />
+                      <Img src={`${baseUrl}/static/facebook.png`} width="24" height="24" alt="Facebook" />
                     </Link>
                   </Column>
                 </Row>
