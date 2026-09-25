@@ -8,6 +8,9 @@ const envSchema = z.object({
   GOOGLE_SHEETS_WEBHOOK_URL: z.string().url().optional(),
   GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL: z.string().url().optional(),
   RESEND_API_KEY: z.string().optional(),
+  QSTASH_TOKEN: z.string().optional(),
+  QSTASH_CURRENT_SIGNING_KEY: z.string().optional(),
+  QSTASH_NEXT_SIGNING_KEY: z.string().optional(),
 });
 
 const parseEnv = () => {
@@ -17,6 +20,9 @@ const parseEnv = () => {
       GOOGLE_SHEETS_WEBHOOK_URL: process.env.GOOGLE_SHEETS_WEBHOOK_URL,
       GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL: process.env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL,
       RESEND_API_KEY: process.env.RESEND_API_KEY,
+      QSTASH_TOKEN: process.env.QSTASH_TOKEN,
+      QSTASH_CURRENT_SIGNING_KEY: process.env.QSTASH_CURRENT_SIGNING_KEY,
+      QSTASH_NEXT_SIGNING_KEY: process.env.QSTASH_NEXT_SIGNING_KEY,
     });
   } catch (error) {
     console.error("Invalid environment variables:", error);

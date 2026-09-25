@@ -2,6 +2,7 @@ import { NextResponse, after } from "next/server";
 import { env } from "@/config/env";
 import { Resend } from "resend";
 import NewsletterEmail from "@/emails/NewsletterEmail";
+import { Client } from "@upstash/qstash";
 
 const resend = new Resend(env.RESEND_API_KEY || "dummy_key");
 
@@ -61,7 +62,21 @@ export async function POST(request: Request) {
       );
     }
 
-    // Process heavy tasks in the background so the user gets an instant success modal
+    if (env.QSTASH_TOKEN) {
+      // 1. Upstash QStash (Enterprise Queue)
+      const isLocal = process.env.NODE_ENV === "development";
+      
+      if (!isLocal) {
+        const qstash = new Client({ token: env.QSTASH_TOKEN });
+        await qstash.publishJSON({
+          url: "https://matchchayn.com/api/workers/newsletter",
+          body: { email, timestamp: new Date().toISOString() },
+        });
+        return NextResponse.json({ success: true });
+      }
+    }
+
+    // 2. Fallback to Next.js after() for local dev or if QStash isn't configured
     after(async () => {
       try {
         const response = await fetch(env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL, {
@@ -80,7 +95,7 @@ export async function POST(request: Request) {
         // Send email using Resend
         if (env.RESEND_API_KEY) {
           await resend.emails.send({
-            from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
+            from: "MatchChayn <hello@app.matchchayn.com>",
             to: email,
             subject: "Welcome to MatchChayn newsletter! 🎉",
             react: NewsletterEmail(),
