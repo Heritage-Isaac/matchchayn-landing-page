@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { env } from "@/config/env";
 import { Resend } from "resend";
 import WaitlistEmail from "@/emails/WaitlistEmail";
@@ -63,31 +63,38 @@ export async function POST(request: Request) {
       );
     }
 
-    const response = await fetch(env.GOOGLE_SHEETS_WEBHOOK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        gender,
-        timestamp: new Date().toISOString(),
-      }),
+    // Process heavy tasks in the background so the user gets an instant success modal
+    after(async () => {
+      try {
+        const response = await fetch(env.GOOGLE_SHEETS_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            gender,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+
+        if (!response.ok) {
+          console.error(`Google Sheets Webhook failed: ${response.status}`);
+        }
+
+        // Send email using Resend
+        if (env.RESEND_API_KEY) {
+          const firstNameOnly = name.split(" ")[0];
+          await resend.emails.send({
+            from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
+            to: email,
+            subject: "Welcome to the MatchChayn waitlist! 🎉",
+            react: WaitlistEmail({ firstName: firstNameOnly }),
+          });
+        }
+      } catch (backgroundError) {
+        console.error("[Waitlist Background Error]:", backgroundError);
+      }
     });
-
-    if (!response.ok) {
-      throw new Error(`Google Sheets Webhook failed: ${response.status}`);
-    }
-
-    // Send email using Resend
-    if (env.RESEND_API_KEY) {
-      const firstNameOnly = name.split(" ")[0];
-      await resend.emails.send({
-        from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
-        to: email,
-        subject: "Welcome to the MatchChayn waitlist! 🎉",
-        react: WaitlistEmail({ firstName: firstNameOnly }),
-      });
-    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

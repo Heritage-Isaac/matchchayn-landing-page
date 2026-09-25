@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { env } from "@/config/env";
 import { Resend } from "resend";
 import NewsletterEmail from "@/emails/NewsletterEmail";
@@ -61,29 +61,35 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send to Google Sheets
-    const response = await fetch(env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        timestamp: new Date().toISOString(),
-      }),
+    // Process heavy tasks in the background so the user gets an instant success modal
+    after(async () => {
+      try {
+        const response = await fetch(env.GOOGLE_SHEETS_NEWSLETTER_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+
+        if (!response.ok) {
+          console.error(`Google Sheets Webhook failed: ${response.status}`);
+        }
+
+        // Send email using Resend
+        if (env.RESEND_API_KEY) {
+          await resend.emails.send({
+            from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
+            to: email,
+            subject: "Welcome to MatchChayn newsletter! 🎉",
+            react: NewsletterEmail(),
+          });
+        }
+      } catch (backgroundError) {
+        console.error("[Newsletter Background Error]:", backgroundError);
+      }
     });
-
-    if (!response.ok) {
-      throw new Error(`Google Sheets Webhook failed: ${response.status}`);
-    }
-
-    // Send email using Resend
-    if (env.RESEND_API_KEY) {
-      await resend.emails.send({
-        from: "MatchChayn <hello@app.matchchayn.com>", // Update this to your verified domain
-        to: email,
-        subject: "Welcome to MatchChayn newsletter! 🎉",
-        react: NewsletterEmail(),
-      });
-    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
