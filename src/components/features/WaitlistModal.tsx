@@ -100,32 +100,43 @@ export const WaitlistProvider = ({ children }: { children: ReactNode }) => {
       {children}
       <Dialog open={isOpen} onOpenChange={(val) => !loading && setIsOpen(val)}>
         <DialogContent
-          className="sm:max-w-md"
+          className="w-[92vw] max-w-md rounded-[32px] p-6 sm:p-8"
           onOpenAutoFocus={(event) => event.preventDefault()}
         >
           {done ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="py-8 text-center space-y-4"
+              className="py-4 sm:py-6 text-center flex flex-col items-center space-y-5"
             >
-              <CheckCircle2 className="mx-auto text-accent" size={44} />
-              <h3 className="font-hero text-3xl">You've been added to the waitlist.</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed space-y-1">
-                <span className="block">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                <CheckCircle2 className="text-primary" size={32} />
+              </div>
+              <h3 className="font-hero text-2xl sm:text-3xl text-balance tracking-tight">
+                You're on the waitlist!
+              </h3>
+              <div className="space-y-3">
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed text-balance">
                   You'll be the first to know when{" "}
-                  <span className="relative inline-block font-medium text-foreground">
+                  <span className="relative inline-block font-medium text-foreground px-1">
                     MatchChayn
-                    <svg className="absolute -bottom-1.5 left-0 w-full h-2 text-primary" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <svg className="absolute -bottom-1 left-0 w-full h-2 text-primary/60" viewBox="0 0 100 10" preserveAspectRatio="none">
                       <path d="M0 5 Q 25 12 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
                   </span>{" "}
                   relaunches.
-                </span>
-                <span className="block mt-1">
-                  Thank you {name.trim().split(" ")[0]} for constantly supporting MatchChayn.
-                </span>
-              </p>
+                </p>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed text-balance">
+                  Thank you, <span className="text-foreground font-medium">{name.trim().split(" ")[0]}</span>, for constantly supporting us.
+                </p>
+              </div>
+              <Button 
+                variant="pill" 
+                className="w-full mt-4 h-12" 
+                onClick={() => setIsOpen(false)}
+              >
+                Close
+              </Button>
             </motion.div>
           ) : (
             <>
