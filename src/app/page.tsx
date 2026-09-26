@@ -77,7 +77,6 @@ export default function Index() {
   const { open: openWaitlist } = useWaitlist();
   return (
     <main className="relative">
-      {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 gradient-mesh" />
         <div className="absolute inset-0 hairline-grid opacity-[0.35]" />
@@ -142,7 +141,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* MARQUEE */}
       <div className="py-6 overflow-hidden border-y border-border/60">
         <div className="animate-marquee flex gap-14 whitespace-nowrap">
           {Array.from({ length: 24 }).map((_, i) => (
@@ -156,7 +154,6 @@ export default function Index() {
         </div>
       </div>
 
-      {/* INTRO */}
       <section className="py-12 md:py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
@@ -199,7 +196,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* LOVE BAND */}
       <section className="pb-12 md:pb-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
@@ -224,7 +220,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
       <section
         id="how-it-works"
         className="py-12 md:py-24 border-t border-border/60 scroll-mt-16 md:scroll-mt-24"
@@ -263,7 +258,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* WHY */}
       <section id="why" className="py-12 md:py-24 scroll-mt-16 md:scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
@@ -292,7 +286,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* MORE THAN DATING */}
       <section
         id="more-than-dating"
         className="py-12 md:py-24 border-t border-border/60 scroll-mt-16 md:scroll-mt-24"
