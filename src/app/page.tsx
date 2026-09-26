@@ -157,7 +157,7 @@ export default function Index() {
       </div>
 
       {/* INTRO */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-stretch">
@@ -200,7 +200,7 @@ export default function Index() {
       </section>
 
       {/* LOVE BAND */}
-      <section className="pb-24">
+      <section className="pb-12 md:pb-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="relative overflow-hidden rounded-3xl border border-border">
@@ -227,7 +227,7 @@ export default function Index() {
       {/* HOW IT WORKS */}
       <section
         id="how-it-works"
-        className="py-24 border-t border-border/60 scroll-mt-24"
+        className="py-12 md:py-24 border-t border-border/60 scroll-mt-16 md:scroll-mt-24"
       >
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
@@ -264,7 +264,7 @@ export default function Index() {
       </section>
 
       {/* WHY */}
-      <section id="why" className="py-24 scroll-mt-24">
+      <section id="why" className="py-12 md:py-24 scroll-mt-16 md:scroll-mt-24">
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <div className="max-w-2xl mb-14">
@@ -295,7 +295,7 @@ export default function Index() {
       {/* MORE THAN DATING */}
       <section
         id="more-than-dating"
-        className="py-24 border-t border-border/60 scroll-mt-24"
+        className="py-12 md:py-24 border-t border-border/60 scroll-mt-16 md:scroll-mt-24"
       >
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
@@ -339,7 +339,7 @@ export default function Index() {
         </div>
       </section>
 
-      <div id="waitlist" className="scroll-mt-24">
+      <div id="waitlist" className="scroll-mt-16 md:scroll-mt-24">
         <CTABanner
           eyebrow="Join the waitlist"
           headline="Ready to meet someone who matches your world?"
