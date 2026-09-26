@@ -1,0 +1,19 @@
+# MatchChayn
+
+MatchChayn is a modern dating and networking platform exclusively built for professionals.
+
+## Overview
+- **Domain:** matchchayn.com
+- **Purpose:** Bridges the gap between career ambitions and personal connections.
+- **Key Features:** Intentional matching, professional networking, curated events, dual-purpose profiles.
+- **Tech Stack:** Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Motion, Resend (Email), Upstash (QStash).
+- **Developer:** Heritage Isaac
+
+## Project Structure
+- **/src/app:** Next.js App Router pages and API routes.
+- **/src/components:** Reusable React components and UI elements.
+- **/src/emails:** React Email templates (Waitlist, Newsletter).
+- **/src/services:** Business logic (Queue, Webhooks).
+
+## Usage
+Users can join the waitlist or subscribe to the newsletter via the main landing page. Data is processed securely, and automated welcome emails are dispatched immediately via background queues.
