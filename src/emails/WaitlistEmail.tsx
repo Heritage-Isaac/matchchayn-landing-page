@@ -73,7 +73,6 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
         <Preview>You're officially on the MatchChayn waitlist! 🎉</Preview>
         <Body className="bg-[#09090b] font-sans m-0 px-2 py-4">
           <Container className="bg-[#18181b] mx-auto rounded-2xl shadow-lg overflow-hidden max-w-[600px] border border-solid border-[#27272a]">
-            {/* Header */}
             <Section className="px-6 sm:px-10 pt-6 pb-2 text-center bg-[#18181b]">
               <Img
                 src={`${baseUrl}/logo-purple.png`}
@@ -83,7 +82,6 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
               />
             </Section>
 
-            {/* Hero Image */}
             <Section className="w-full bg-[#09090b] pt-2 pb-0 flex justify-center text-center border-b border-solid border-[#27272a]">
               <Img
                 src={`${baseUrl}/couple-intro.png`}
@@ -93,7 +91,6 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
               />
             </Section>
 
-            {/* Main Content */}
             <Section className="px-6 sm:px-10 py-10">
               <Heading className="text-[#7c3aed] text-2xl sm:text-3xl font-serif p-0 m-0 mb-6 leading-tight">
                 Welcome to MatchChayn, {firstName}! 💜
@@ -115,13 +112,11 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
 
             <Hr className="border-[#27272a] m-0" />
 
-            {/* Footer */}
             <Section className="px-6 sm:px-10 py-8 bg-[#09090b] text-center">
               <Text className="text-[#a1a1aa] text-sm m-0 mb-5">
                 Follow us on our socials to stay updated!
               </Text>
 
-              {/* Socials - Flex approach using Sections/Columns to keep it tight */}
               <Section align="center" className="w-full max-w-[280px] mx-auto mb-5">
                 <Row>
                   <Column align="center" className="px-2">
