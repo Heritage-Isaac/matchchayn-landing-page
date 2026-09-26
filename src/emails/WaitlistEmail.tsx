@@ -73,21 +73,23 @@ export default function WaitlistEmail({ firstName = "Alex" }: WaitlistEmailProps
         <Preview>You're officially on the MatchChayn waitlist! 🎉</Preview>
         <Body className="bg-[#09090b] font-sans m-0 px-2 py-4">
           <Container className="bg-[#18181b] mx-auto rounded-2xl shadow-lg overflow-hidden max-w-[600px] border border-solid border-[#27272a]">
-            <Section className="px-6 sm:px-10 pt-6 pb-2 text-center bg-[#18181b]">
+            <Section className="px-6 sm:px-10 pt-6 pb-2 text-center bg-[#09090b]" align="center">
               <Img
                 src={`${baseUrl}/logo-purple.png`}
                 width="180"
                 alt="MatchChayn Logo"
                 className="mx-auto block"
+                style={{ margin: "0 auto" }}
               />
             </Section>
 
-            <Section className="w-full bg-[#09090b] pt-2 pb-0 flex justify-center text-center border-b border-solid border-[#27272a]">
+            <Section className="w-full bg-[#09090b] pt-2 pb-0 text-center border-b border-solid border-[#27272a]" align="center">
               <Img
                 src={`${baseUrl}/couple-intro.png`}
                 width="280"
                 alt="Happy Couple"
                 className="mx-auto block rounded-t-lg object-contain"
+                style={{ margin: "0 auto" }}
               />
             </Section>
 
