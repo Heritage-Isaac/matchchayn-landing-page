@@ -79,15 +79,6 @@ export default function NewsletterEmail() {
               />
             </Section>
 
-            <Section className="w-full bg-[#09090b] pt-2 pb-0 text-center border-b border-solid border-[#27272a]" align="center">
-              <Img
-                src={`${baseUrl}/couple-intro.png`}
-                width="280"
-                alt="Happy Couple"
-                className="mx-auto block rounded-t-lg object-contain"
-                style={{ margin: "0 auto" }}
-              />
-            </Section>
 
             <Section className="px-6 sm:px-10 py-10">
               <Heading className="text-[#7c3aed] text-2xl sm:text-3xl font-serif p-0 m-0 mb-6 leading-tight">
