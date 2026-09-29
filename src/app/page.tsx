@@ -7,7 +7,7 @@ import DownloadAppButton from "@/components/features/DownloadAppButton";
 import videoSwipe from "@/assets/matchchayn-video-swipe.png";
 import coupleIntro from "@/assets/couple-intro.png";
 import coupleCafe from "@/assets/couple-cafe.jpg";
-import coupleEvent from "@/assets/couple-event.jpg";
+import couplePicnic from "@/assets/couple-picnic.jpg";
 import logo from "@/assets/logo.svg";
 import {
   Briefcase,
@@ -319,8 +319,8 @@ export default function Index() {
               <div className="relative">
                 <div className="absolute inset-10 purple-glow opacity-20 blur-3xl" />
                 <img
-                  src={coupleEvent.src}
-                  alt="A black couple hugging and laughing together at an elegant event"
+                  src={couplePicnic.src}
+                  alt="A happy white couple enjoying a romantic picnic in a beautiful park setting"
                   loading="lazy"
                   width={1024}
                   height={1280}
