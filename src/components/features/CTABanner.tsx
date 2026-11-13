@@ -36,7 +36,7 @@ const CTABanner = ({
         className="relative container mx-auto px-6 lg:px-[100px] max-w-3xl text-center"
       >
         <span className="eyebrow">{eyebrow}</span>
-        <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-6 leading-[1.08] tracking-[-0.02em]">
+        <h2 className="font-space-grotesk font-medium text-4xl md:text-5xl mt-4 mb-6 leading-[1.08] tracking-[-0.02em]">
           {headline}
         </h2>
         <p className="text-lg text-muted-foreground leading-relaxed mb-9">

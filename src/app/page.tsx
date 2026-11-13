@@ -89,7 +89,7 @@ export default function Index() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className="eyebrow">MatchChayn</span>
-              <h1 className="font-hero text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
+              <h1 className="font-space-grotesk font-medium text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
                 Where Professionals
                 <br />
                 <span className="italic text-accent">Find Love.</span>
@@ -172,7 +172,7 @@ export default function Index() {
               </div>
               <div className="space-y-6">
                 <span className="eyebrow">Made for real connection</span>
-                <h2 className="font-hero text-4xl md:text-5xl leading-[1.08] tracking-[-0.02em]">
+                <h2 className="font-space-grotesk font-medium text-4xl md:text-5xl leading-[1.08] tracking-[-0.02em]">
                   A Dating Platform
                   <br />
                   Built for Professionals.
@@ -211,7 +211,7 @@ export default function Index() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
               <div className="absolute bottom-0 p-8 lg:p-12 max-w-xl">
                 <span className="eyebrow">Real stories</span>
-                <p className="font-hero text-3xl md:text-4xl mt-3 leading-[1.1] tracking-[-0.02em]">
+                <p className="font-space-grotesk font-medium text-3xl md:text-4xl mt-3 leading-[1.1] tracking-[-0.02em]">
                   Love that starts with something in common.
                 </p>
               </div>
@@ -227,7 +227,7 @@ export default function Index() {
         <div className="container mx-auto px-6 lg:px-[100px]">
           <ScrollReveal>
             <span className="eyebrow">How MatchChayn works</span>
-            <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-14 tracking-[-0.02em]">
+            <h2 className="font-space-grotesk font-medium text-4xl md:text-5xl mt-4 mb-14 tracking-[-0.02em]">
               Three steps to the right person.
             </h2>
           </ScrollReveal>
@@ -246,7 +246,7 @@ export default function Index() {
                     size={22}
                   />
                 </div>
-                <h3 className="font-hero text-2xl mb-3 leading-snug">
+                <h3 className="font-space-grotesk font-normal text-2xl mb-3 leading-snug">
                   {s.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -265,7 +265,7 @@ export default function Index() {
               <span className="eyebrow">
                 Why professionals choose MatchChayn
               </span>
-              <h2 className="font-hero text-4xl md:text-5xl mt-4 tracking-[-0.02em]">
+              <h2 className="font-space-grotesk font-medium text-4xl md:text-5xl mt-4 tracking-[-0.02em]">
                 Built for people with intent.
               </h2>
             </div>
@@ -275,7 +275,7 @@ export default function Index() {
               <ScrollReveal key={r.title}>
                 <div className="soft-card h-full">
                   <r.icon className="text-accent mb-6" size={26} />
-                  <h3 className="font-hero text-2xl mb-3">{r.title}</h3>
+                  <h3 className="font-space-grotesk font-normal text-2xl mb-3">{r.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {r.desc}
                   </p>
@@ -295,7 +295,7 @@ export default function Index() {
             <div className="grid lg:grid-cols-2 gap-14 items-center">
               <div>
                 <span className="eyebrow">More than dating</span>
-                <h2 className="font-hero text-4xl md:text-5xl mt-4 mb-8 tracking-[-0.02em]">
+                <h2 className="font-space-grotesk font-medium text-4xl md:text-5xl mt-4 mb-8 tracking-[-0.02em]">
                   MatchChayn brings together:
                 </h2>
                 <ul className="divide-y divide-border/60 border-y border-border/60">

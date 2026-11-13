@@ -17,6 +17,8 @@ export default {
         heading: ['Manrope', 'sans-serif'],
         hero: ['"Instrument Serif"', 'Georgia', 'serif'],
         body: ['Manrope', 'sans-serif'],
+        space: ['var(--font-space-grotesk)', '"Space Grotesk"', 'sans-serif'],
+        'space-grotesk': ['var(--font-space-grotesk)', '"Space Grotesk"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
