@@ -92,7 +92,7 @@ export default function Index() {
               <h1 className="font-space-grotesk font-medium text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
                 Where Professionals
                 <br />
-                <span className="italic text-accent">Find Love.</span>
+                <span className="text-accent">Find Love.</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
                 Find the right person through intentional matching, curated
